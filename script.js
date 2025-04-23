@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
     const pageContent = document.getElementById("pageContent");
   
+    // 🔁 Unified close handler for nav
+    const removeNav = () => {
+      body.classList.remove("nav-open");
+      body.classList.add("nav-closing");
+  
+      setTimeout(() => {
+        body.classList.remove("nav-closing");
+        document.documentElement.style.scrollPaddingTop = "64px";
+      }, 300); // Match fadeSlideOut animation duration
+    };
+  
     // --- Theme toggle logic ---
     const applyTheme = (theme) => {
       if (theme === "dark") {
@@ -57,19 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const isOpen = body.classList.contains("nav-open");
   
       if (!isOpen) {
-        // OPEN
         body.classList.add("nav-open");
-        navLinks.classList.remove("closing");
         document.documentElement.style.scrollPaddingTop = "160px";
       } else {
-        // CLOSE with animation
-        navLinks.classList.add("closing");
-  
-        setTimeout(() => {
-          body.classList.remove("nav-open");
-          navLinks.classList.remove("closing");
-          document.documentElement.style.scrollPaddingTop = "64px";
-        }, 300);
+        removeNav();
       }
     });
   
@@ -87,10 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: "smooth"
           });
   
-          // Close mobile nav if open
-          body.classList.remove("nav-open");
-          navLinks.classList.remove("closing");
-          document.documentElement.style.scrollPaddingTop = "64px";
+          removeNav();
         }
       });
     });
@@ -102,13 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const clickedInsideNav = navContainer.contains(event.target);
   
       if (isMobile && isOpen && !clickedInsideNav) {
-        navLinks.classList.add("closing");
-  
-        setTimeout(() => {
-          body.classList.remove("nav-open");
-          navLinks.classList.remove("closing");
-          document.documentElement.style.scrollPaddingTop = "64px";
-        }, 300);
+        removeNav();
       }
     });
   });

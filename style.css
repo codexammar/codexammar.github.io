@@ -440,6 +440,27 @@
       color: #90caf9 !important;
     }
   }
+
+  /* 🔁 nav-closing: Smoothly undo all effects when closing menu */
+  body.nav-closing #pageContent {
+    filter: blur(0);
+    transition: filter 0.3s ease;
+  }
+  
+  body.nav-closing .nav-links {
+    animation: fadeSlideOut 0.3s ease forwards;
+  }
+  
+  body.nav-closing .bar.top {
+    transform: translateY(0) rotate(0);
+  }
+  body.nav-closing .bar.middle {
+    opacity: 1;
+  }
+  body.nav-closing .bar.bottom {
+    transform: translateY(0) rotate(0);
+  }
+  
   
   
   
