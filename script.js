@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburgerBtn = document.getElementById("hamburgerBtn");
     const navContainer = document.querySelector(".navbar");
     const body = document.body;
-    const projectsItem = document.getElementById("projects");
     const subnav = document.getElementById("projects-subnav");
     const navLinks = document.querySelector(".nav-links");
     const pageContent = document.getElementById("pageContent");
+    const projectsNavItem = document.querySelector('.nav-item.has-subnav');
+    const projectsSection = document.getElementById("projects");
   
     // 🔁 Unified close handler for nav
     const removeNav = () => {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         body.classList.remove("nav-closing");
         document.documentElement.style.scrollPaddingTop = "64px";
-      }, 300); // Match fadeSlideOut animation duration
+      }, 300);
     };
   
     // --- Theme toggle logic ---
@@ -40,30 +41,30 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTheme(newTheme);
     });
   
-    // --- Hover dropdown logic (desktop only) ---
-    projectsItem.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 768) {
+    // --- Subnav show/hide on hover (navbar + section)
+    if (window.innerWidth > 768) {
+      let subnavTimeout;
+  
+      const showSubnav = () => {
+        clearTimeout(subnavTimeout);
         subnav.classList.add("show-subnav");
-      }
-    });
+      };
   
-    projectsItem.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 768) {
-        setTimeout(() => {
-          if (!subnav.matches(':hover')) {
-            subnav.classList.remove("show-subnav");
-          }
-        }, 100);
-      }
-    });
+      const hideSubnav = () => {
+        subnavTimeout = setTimeout(() => {
+          subnav.classList.remove("show-subnav");
+        }, 200);
+      };
   
-    subnav.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 768) {
-        subnav.classList.remove("show-subnav");
-      }
-    });
+      projectsNavItem.addEventListener("mouseenter", showSubnav);
+      projectsNavItem.addEventListener("mouseleave", hideSubnav);
+      subnav.addEventListener("mouseenter", showSubnav);
+      subnav.addEventListener("mouseleave", hideSubnav);
+      projectsSection.addEventListener("mouseenter", showSubnav);
+      projectsSection.addEventListener("mouseleave", hideSubnav);
+    }
   
-    // --- Hamburger open/close with blur + animation ---
+    // --- Hamburger open/close
     hamburgerBtn.addEventListener("click", () => {
       const isOpen = body.classList.contains("nav-open");
   
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   
-    // --- Anchor click behavior (manual smooth scroll to avoid subnav glitch) ---
+    // --- Anchor scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function (e) {
         const href = this.getAttribute("href");
@@ -84,12 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (target) {
           e.preventDefault();
   
-          // Close mobile menu if open
+          // Close menu
           removeNav();
   
-          // Scroll after short delay to allow DOM layout to stabilize
           setTimeout(() => {
-            const offset = 110; // navbar + subnav height
+            const offset = 110;
             const top = target.getBoundingClientRect().top + window.scrollY - offset;
   
             window.scrollTo({
@@ -97,12 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
               behavior: "smooth"
             });
           }, 10);
-          this.blur(); // remove focus from clicked link
+  
+          this.blur(); // prevent focus layout shift
         }
       });
     });
   
-    // --- Close hamburger menu on click outside ---
+    // --- Close mobile menu on outside click
     document.addEventListener("click", (event) => {
       const isMobile = window.innerWidth <= 768;
       const isOpen = body.classList.contains("nav-open");

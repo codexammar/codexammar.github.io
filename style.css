@@ -60,10 +60,10 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
     height: 64px;
   }
-
+  
   .navbar a:focus {
     outline: none;
-  }  
+  }
   
   .nav-container {
     display: flex;
@@ -96,11 +96,29 @@
   }
   
   .nav-item a {
+    position: relative;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
     color: #222;
     transition: color 0.3s ease;
+  }
+  
+  .nav-item a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 2px;
+    background-color: #0070f3;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-item a:hover::after {
+    transform: translateX(-50%) scaleX(1);
   }
   
   .nav-item a:hover {
@@ -211,10 +229,10 @@
     position: relative;
     z-index: 100;
   }
-
+  
   #projects {
-    scroll-margin-top: 110px; /* height of navbar (64px) + subnav (~46px) */
-  }  
+    scroll-margin-top: 110px;
+  }
   
   .content h2 {
     font-size: 2rem;
