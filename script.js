@@ -2,22 +2,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
   
-    // 1. Load the stored theme from localStorage
-    const savedTheme = localStorage.getItem("theme");
+    // Helper to apply theme and icon
+    const applyTheme = (theme) => {
+      if (theme === "dark") {
+        body.classList.add("dark-mode");
+        themeToggle.textContent = "☀️";
+      } else {
+        body.classList.remove("dark-mode");
+        themeToggle.textContent = "🌙";
+      }
+    };
   
-    if (savedTheme === "dark") {
-      body.classList.add("dark-mode");
-      themeToggle.textContent = "☀️";
-    } else {
-      body.classList.remove("dark-mode");
-      themeToggle.textContent = "🌙";
-    }
+    // Load stored theme or default to light
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
   
-    // 2. Toggle the theme and update icon/storage
+    // Toggle theme on click
     themeToggle.addEventListener("click", () => {
-      const isDark = body.classList.toggle("dark-mode");
-      themeToggle.textContent = isDark ? "☀️" : "🌙";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      const currentTheme = body.classList.contains("dark-mode") ? "dark" : "light";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      applyTheme(newTheme);
     });
   });
   
