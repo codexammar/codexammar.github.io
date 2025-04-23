@@ -91,7 +91,7 @@
    * SUBNAV BAR (FULL-WIDTH DROPDOWN)
    * ---------------------------------------------- */
   .subnav-bar {
-    position: absolute;
+    position: fixed;
     top: 64px; /* Match navbar height */
     left: 0;
     width: 100%;
