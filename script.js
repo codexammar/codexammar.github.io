@@ -23,14 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // 🌙 Apply saved theme
     const applyTheme = (theme) => {
-      if (theme === "dark") {
-        html.classList.add("dark-mode");
-        themeToggle.textContent = "☀️";
-      } else {
-        html.classList.remove("dark-mode");
-        themeToggle.textContent = "🌙";
-      }
-    };
+        html.classList.add("theme-transition");
+      
+        if (theme === "dark") {
+          html.classList.add("dark-mode");
+          themeToggle.textContent = "☀️";
+        } else {
+          html.classList.remove("dark-mode");
+          themeToggle.textContent = "🌙";
+        }
+      
+        // Remove transition flag after animation duration
+        setTimeout(() => {
+          html.classList.remove("theme-transition");
+        }, 300);
+    };      
   
     const savedTheme = localStorage.getItem("theme") || "light";
     applyTheme(savedTheme);
