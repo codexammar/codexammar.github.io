@@ -1,28 +1,26 @@
 // script.js
 
-// Theme toggle and persistence
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
   
-    // Check stored preference
+    // Check and apply stored theme preference
     const storedTheme = localStorage.getItem("theme");
+  
     if (storedTheme === "dark") {
       body.classList.add("dark-mode");
-      themeToggle.textContent = "☀️";
+      themeToggle.textContent = "☀️"; // Moon switches to sun
+    } else {
+      themeToggle.textContent = "🌙"; // Ensure toggle shows correct icon
     }
   
-    // Theme toggle logic
+    // Theme toggle button logic
     themeToggle.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
   
-      if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-        themeToggle.textContent = "☀️";
-      } else {
-        localStorage.setItem("theme", "light");
-        themeToggle.textContent = "🌙";
-      }
+      const isDark = body.classList.contains("dark-mode");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
     });
   });
   
