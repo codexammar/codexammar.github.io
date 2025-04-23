@@ -1,7 +1,5 @@
-/* ----------------------------------------------
- * GLOBAL RESET & BASE STYLES
- * ---------------------------------------------- */
- * {
+/* GLOBAL RESET & BASE STYLES */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,18 +13,17 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
   
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 64px;
+  }
+  
   @media (min-width: 769px) {
     html {
       scroll-padding-top: 64px !important;
     }
   }
   
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 64px;
-  }
-  
-  /* Blur transition target */
   #pageContent {
     transition: filter 0.4s ease;
   }
@@ -35,9 +32,7 @@
     filter: blur(6px);
   }
   
-  /* ----------------------------------------------
-   * THEME TOGGLE BUTTON
-   * ---------------------------------------------- */
+  /* THEME TOGGLE */
   .theme-toggle {
     background: none;
     border: none;
@@ -56,9 +51,7 @@
     color: #f5f5f5;
   }
   
-  /* ----------------------------------------------
-   * NAVBAR (TOP BAR)
-   * ---------------------------------------------- */
+  /* NAVBAR */
   .navbar {
     background: white;
     position: sticky;
@@ -98,10 +91,6 @@
     align-items: center;
   }
   
-  .nav-item {
-    position: relative;
-  }
-  
   .nav-item a {
     text-decoration: none;
     font-size: 1rem;
@@ -114,9 +103,7 @@
     color: #0070f3;
   }
   
-  /* ----------------------------------------------
-   * SUBNAV BAR (FULL-WIDTH DROPDOWN)
-   * ---------------------------------------------- */
+  /* SUBNAV BAR */
   .subnav-bar {
     position: fixed;
     top: 64px;
@@ -131,10 +118,7 @@
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     z-index: 999;
   }
@@ -158,13 +142,48 @@
     color: #0070f3;
   }
   
-  /* ----------------------------------------------
-   * HERO SECTION
-   * ---------------------------------------------- */
+  /* HERO */
   .hero {
     text-align: center;
     padding: 4rem 1rem;
     background: linear-gradient(to right, #f9f5ec, #ffffff);
+  }
+  
+  .hero-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    flex: 1 1 300px;
+    text-align: left;
+    max-width: 500px;
+  }
+  
+  .hero-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+  }
+  
+  .hero-image:hover {
+    box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
   
   .hero h1 {
@@ -176,9 +195,7 @@
     font-size: 1.2rem;
   }
   
-  /* ----------------------------------------------
-   * CONTENT & PROJECTS
-   * ---------------------------------------------- */
+  /* CONTENT & PROJECTS */
   .content {
     max-width: 800px;
     margin: 4rem auto;
@@ -228,9 +245,7 @@
     margin-bottom: 1rem;
   }
   
-  /* ----------------------------------------------
-   * FOOTER
-   * ---------------------------------------------- */
+  /* FOOTER */
   footer.footer {
     text-align: center;
     padding: 2rem 1rem;
@@ -239,9 +254,7 @@
     color: #777;
   }
   
-  /* ----------------------------------------------
-   * DARK MODE STYLES
-   * ---------------------------------------------- */
+  /* DARK MODE */
   body.dark-mode {
     background: #121212;
     color: #f5f5f5;
@@ -251,16 +264,8 @@
     color: #90caf9;
   }
   
-  body.dark-mode .navbar {
-    background: #1e1e1e;
-    box-shadow: none;
-  }
-  
-  body.dark-mode .footer {
-    background: #1e1e1e;
-    color: #aaa;
-  }
-  
+  body.dark-mode .navbar,
+  body.dark-mode .footer,
   body.dark-mode .project-card {
     background: #1e1e1e;
     color: #eee;
@@ -296,21 +301,21 @@
     color: #90caf9;
   }
   
-  /* ----------------------------------------------
-   * RESPONSIVE STYLES
-   * ---------------------------------------------- */
   @media (max-width: 768px) {
-    .nav-links {
-      flex-direction: column;
-      gap: 1rem;
+    body.dark-mode .nav-links {
+      background: #1e1e1e !important;
     }
   
-    .hero h1 {
-      font-size: 2.5rem;
+    body.dark-mode .nav-links a {
+      color: #eee !important;
+    }
+  
+    body.dark-mode .nav-links a:hover {
+      color: #90caf9 !important;
     }
   }
   
-  /* Hamburger animation */
+  /* HAMBURGER + DROPDOWN */
   .hamburger {
     display: none;
     width: 28px;
@@ -336,18 +341,18 @@
     background-color: #f5f5f5;
   }
   
-  /* Hamburger → X */
   .nav-open .bar.top {
     transform: translateY(9px) rotate(45deg);
   }
+  
   .nav-open .bar.middle {
     opacity: 0;
   }
+  
   .nav-open .bar.bottom {
     transform: translateY(-9px) rotate(-45deg);
   }
   
-  /* Mobile dropdown */
   .nav-open .nav-links {
     display: flex !important;
     flex-direction: column;
@@ -364,11 +369,6 @@
     z-index: 999;
   }
   
-  body.dark-mode .nav-open .nav-links {
-    background: #1e1e1e;
-  }
-  
-  /* Fade In */
   @keyframes fadeSlideIn {
     to {
       transform: translateY(0);
@@ -376,7 +376,6 @@
     }
   }
   
-  /* Fade Out */
   .nav-links.closing {
     animation: fadeSlideOut 0.3s ease forwards;
   }
@@ -392,7 +391,7 @@
     }
   }
   
-  /* Responsive tweaks */
+  /* RESPONSIVE STYLES */
   @media (max-width: 768px) {
     .hamburger {
       display: flex;
@@ -425,23 +424,8 @@
       display: flex !important;
     }
   }
-
-/* ✅ Mobile-specific dark mode fix for hamburger dropdown */
-@media (max-width: 768px) {
-    body.dark-mode .nav-links {
-      background: #1e1e1e !important;
-    }
   
-    body.dark-mode .nav-links a {
-      color: #eee !important;
-    }
-  
-    body.dark-mode .nav-links a:hover {
-      color: #90caf9 !important;
-    }
-  }
-
-  /* 🔁 nav-closing: Smoothly undo all effects when closing menu */
+  /* SMOOTH CLOSING STATE */
   body.nav-closing #pageContent {
     filter: blur(0);
     transition: filter 0.3s ease;
@@ -454,13 +438,12 @@
   body.nav-closing .bar.top {
     transform: translateY(0) rotate(0);
   }
+  
   body.nav-closing .bar.middle {
     opacity: 1;
   }
+  
   body.nav-closing .bar.bottom {
     transform: translateY(0) rotate(0);
   }
-  
-  
-  
   
