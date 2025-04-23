@@ -21,11 +21,12 @@
     <meta name="twitter:description" content="AI & Fullstack Developer | Computer Engineering Student" />
     <meta name="twitter:image" content="assets/images/social-preview.png" />
     <script>
+        // Apply saved theme immediately before CSS paints
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme === "dark") {
-          document.body.classList.add("dark-mode");
+          document.documentElement.classList.add("dark-mode");
         }
-    </script>
+    </script>      
 
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js?v=1.058"></script>
@@ -119,7 +120,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-      <p>© 2025 CodexAmmar. All rights reserved. vA1.33</p>
+      <p>© 2025 CodexAmmar. All rights reserved. vA1.34</p>
     </footer>
   </div>
   <!-- 👆 END WRAPPED CONTENT -->
