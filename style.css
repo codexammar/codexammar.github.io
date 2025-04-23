@@ -284,4 +284,71 @@
       font-size: 2.5rem;
     }
   }
+
+  /* Hamburger icon (hidden on desktop) */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #222;
+    cursor: pointer;
+  }
+  
+  body.dark-mode .hamburger {
+    color: #f5f5f5;
+  }
+  
+  /* Mobile nav toggle state */
+  .nav-open .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+  }
+  
+  body.dark-mode .nav-open .nav-links {
+    background: #1e1e1e;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .nav-container {
+      align-items: flex-start;
+    }
+  
+    .nav-item {
+      width: 100%;
+      text-align: left;
+    }
+  
+    .subnav-bar {
+      position: static;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+  
+    .show-subnav {
+      display: flex !important;
+    }
+  }
+  
   

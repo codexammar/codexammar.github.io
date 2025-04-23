@@ -48,3 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navContainer = document.querySelector(".navbar");
+
+hamburgerBtn.addEventListener("click", () => {
+  navContainer.classList.toggle("nav-open");
+});
