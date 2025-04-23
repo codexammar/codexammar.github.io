@@ -20,3 +20,13 @@ const observer = new IntersectionObserver(
     document.body.classList.toggle("dark-mode");
   });
   
+  // NAVBAR HOVER EXPAND LOGIC
+const navbar = document.querySelector(".navbar");
+
+navbar.addEventListener("mouseenter", () => {
+  navbar.classList.add("expanded");
+});
+
+navbar.addEventListener("mouseleave", () => {
+  navbar.classList.remove("expanded");
+});
