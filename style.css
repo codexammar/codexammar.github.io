@@ -90,16 +90,20 @@
 /* ----------------------------------------------
  * SECONDARY SUBNAV BAR WITH SMOOTH ANIMATION
  * ---------------------------------------------- */
-.subnav-bar {
+ .subnav-bar {
+    visibility: hidden;
     opacity: 0;
     max-height: 0;
-    overflow: hidden;
     transform: translateY(-10px);
+    overflow: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      max-height 0.3s ease,
+      visibility 0.3s ease;
     background: #fafafa;
     padding: 0 1rem;
-    border-top: 1px solid #eee;
     border-radius: 6px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     flex-direction: column;
@@ -110,6 +114,16 @@
     z-index: 999;
     white-space: nowrap;
   }
+  
+  .has-subnav:hover .subnav-bar {
+    visibility: visible;
+    opacity: 1;
+    max-height: 200px;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 0.75rem 1rem;
+  }
+  
   
   #projects:hover + #projects-subnav {
     opacity: 1;
