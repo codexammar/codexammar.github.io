@@ -1,26 +1,23 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const themeToggle = document.getElementById("themeToggle");
     const body = document.body;
   
-    // Check and apply stored theme preference
-    const storedTheme = localStorage.getItem("theme");
+    // 1. Load the stored theme from localStorage
+    const savedTheme = localStorage.getItem("theme");
   
-    if (storedTheme === "dark") {
+    if (savedTheme === "dark") {
       body.classList.add("dark-mode");
-      themeToggle.textContent = "☀️"; // Moon switches to sun
+      themeToggle.textContent = "☀️";
     } else {
-      themeToggle.textContent = "🌙"; // Ensure toggle shows correct icon
+      body.classList.remove("dark-mode");
+      themeToggle.textContent = "🌙";
     }
   
-    // Theme toggle button logic
+    // 2. Toggle the theme and update icon/storage
     themeToggle.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-  
-      const isDark = body.classList.contains("dark-mode");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      const isDark = body.classList.toggle("dark-mode");
       themeToggle.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   });
   
