@@ -24,5 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", newTheme);
       applyTheme(newTheme);
     });
+  
+    // 🔽 Dropdown hover logic for "Projects"
+    const projectsItem = document.getElementById("projects");
+    const subnav = document.getElementById("projects-subnav");
+  
+    // Show subnav on hover
+    projectsItem.addEventListener("mouseenter", () => {
+      subnav.classList.add("show-subnav");
+    });
+  
+    // Hide subnav if mouse leaves both nav item and dropdown
+    projectsItem.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!subnav.matches(':hover')) {
+          subnav.classList.remove("show-subnav");
+        }
+      }, 100);
+    });
+  
+    subnav.addEventListener("mouseleave", () => {
+      subnav.classList.remove("show-subnav");
+    });
   });
   

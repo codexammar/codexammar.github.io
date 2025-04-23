@@ -114,24 +114,15 @@
     z-index: 999;
     white-space: nowrap;
   }
-  
-  .has-subnav:hover .subnav-bar {
+
+  .subnav-bar.show-subnav {
     visibility: visible;
     opacity: 1;
-    max-height: 200px;
+    max-height: 500px;
     transform: translateY(0);
     pointer-events: auto;
     padding: 0.75rem 1rem;
-  }
-  
-  
-  #projects:hover + #projects-subnav {
-    opacity: 1;
-    max-height: 200px;
-    transform: translateY(0);
-    pointer-events: auto;
-    padding: 0.75rem 1rem;
-  }
+  }  
   
   .subnav-bar a {
     text-decoration: none;
@@ -172,6 +163,8 @@
     animation: fadeInUp 1s ease forwards;
     opacity: 0;
     transform: translateY(20px);
+    position: relative;
+    z-index: 100;
   }
   
   .content h2 {
