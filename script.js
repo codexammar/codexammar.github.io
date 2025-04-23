@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
           body.classList.remove("nav-open");
           navLinks.classList.remove("closing");
           document.documentElement.style.scrollPaddingTop = "64px";
-        }, 300); // must match fadeSlideOut CSS duration
+        }, 300);
       }
     });
   
@@ -93,6 +93,23 @@ document.addEventListener("DOMContentLoaded", () => {
           document.documentElement.style.scrollPaddingTop = "64px";
         }
       });
+    });
+  
+    // --- Close hamburger menu on click outside ---
+    document.addEventListener("click", (event) => {
+      const isMobile = window.innerWidth <= 768;
+      const isOpen = body.classList.contains("nav-open");
+      const clickedInsideNav = navContainer.contains(event.target);
+  
+      if (isMobile && isOpen && !clickedInsideNav) {
+        navLinks.classList.add("closing");
+  
+        setTimeout(() => {
+          body.classList.remove("nav-open");
+          navLinks.classList.remove("closing");
+          document.documentElement.style.scrollPaddingTop = "64px";
+        }, 300);
+      }
     });
   });
   
