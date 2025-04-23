@@ -39,15 +39,17 @@ body,
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-html:not(.theme-transition) body,
-html:not(.theme-transition) .theme-toggle,
-html:not(.theme-transition) .navbar,
-html:not(.theme-transition) .footer,
-html:not(.theme-transition) .project-card,
-html:not(.theme-transition) .hero,
-html:not(.theme-transition) .subnav-bar {
-  transition: none !important;
+/* Enable theme transitions on key components */
+html.theme-transition body,
+html.theme-transition .navbar,
+html.theme-transition .footer,
+html.theme-transition .hero,
+html.theme-transition .project-card,
+html.theme-transition .subnav-bar,
+html.theme-transition .theme-toggle {
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
 
   
   @media (min-width: 769px) {
