@@ -188,7 +188,7 @@
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     padding: 2rem;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.23s ease, background 0.23s ease;
     text-align: center;
   }
   
