@@ -39,15 +39,15 @@
     color: #f5f5f5;
   }
   
-/* ----------------------------------------------
- * NAVBAR & DROPDOWN SUBNAV (CLEAN VERSION)
- * ---------------------------------------------- */
- .navbar {
+  /* ----------------------------------------------
+   * NAVBAR (TOP BAR)
+   * ---------------------------------------------- */
+  .navbar {
     background: white;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
   }
   
   .nav-container {
@@ -87,47 +87,43 @@
     color: #0070f3;
   }
   
-/* ----------------------------------------------
- * SECONDARY SUBNAV BAR WITH SMOOTH ANIMATION
- * ---------------------------------------------- */
- .subnav-bar {
+  /* ----------------------------------------------
+   * SUBNAV BAR (FULL-WIDTH DROPDOWN)
+   * ---------------------------------------------- */
+  .subnav-bar {
+    position: absolute;
+    top: 64px; /* Match navbar height */
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
     visibility: hidden;
     opacity: 0;
-    max-height: 0;
-    transform: translateY(-10px);
-    overflow: hidden;
     pointer-events: none;
+    transform: translateY(-10px);
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
-      max-height 0.3s ease,
       visibility 0.3s ease;
-    background: #fafafa;
-    padding: 0 1rem;
-    border-radius: 6px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    flex-direction: column;
-    gap: 0.5rem;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     z-index: 999;
-    white-space: nowrap;
   }
-
+  
   .subnav-bar.show-subnav {
     visibility: visible;
     opacity: 1;
-    max-height: 500px;
     transform: translateY(0);
     pointer-events: auto;
-    padding: 0.75rem 1rem;
-  }  
+  }
   
   .subnav-bar a {
     text-decoration: none;
-    color: #444;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #222;
     transition: color 0.3s ease;
   }
   
@@ -189,7 +185,7 @@
   .project-card {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     padding: 2rem;
     transition: transform 0.3s ease, background 0.3s ease;
     text-align: center;
@@ -216,10 +212,10 @@
     color: #777;
   }
   
-/* ----------------------------------------------
- * DARK MODE STYLES
- * ---------------------------------------------- */
- body.dark-mode {
+  /* ----------------------------------------------
+   * DARK MODE STYLES
+   * ---------------------------------------------- */
+  body.dark-mode {
     background: #121212;
     color: #f5f5f5;
   }
@@ -260,19 +256,18 @@
     color: #90caf9;
   }
   
-    /* DARK MODE for subnav */
-    body.dark-mode .subnav-bar {
-    background: #2c2c2c;
-    border-top: 1px solid #444;
-    }
-
-    body.dark-mode .subnav-bar a {
+  body.dark-mode .subnav-bar {
+    background: #1e1e1e;
+    box-shadow: none;
+  }
+  
+  body.dark-mode .subnav-bar a {
     color: #ccc;
-    }
-
-    body.dark-mode .subnav-bar a:hover {
+  }
+  
+  body.dark-mode .subnav-bar a:hover {
     color: #90caf9;
-    }
+  }
   
   /* ----------------------------------------------
    * RESPONSIVE STYLES
