@@ -426,17 +426,20 @@
     }
   }
 
-  /* Ensure mobile dropdown uses dark background in dark mode */
-    body.dark-mode .nav-open .nav-links {
-        background: #1e1e1e;
+/* ✅ Mobile-specific dark mode fix for hamburger dropdown */
+@media (max-width: 768px) {
+    body.dark-mode .nav-links {
+      background: #1e1e1e !important;
     }
-    
+  
     body.dark-mode .nav-links a {
-        color: #eee;
+      color: #eee !important;
     }
-    
+  
     body.dark-mode .nav-links a:hover {
-        color: #90caf9;
+      color: #90caf9 !important;
     }
+  }
+  
   
   
