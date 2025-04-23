@@ -425,4 +425,18 @@
       display: flex !important;
     }
   }
+
+  /* Ensure mobile dropdown uses dark background in dark mode */
+    body.dark-mode .nav-open .nav-links {
+        background: #1e1e1e;
+    }
+    
+    body.dark-mode .nav-links a {
+        color: #eee;
+    }
+    
+    body.dark-mode .nav-links a:hover {
+        color: #90caf9;
+    }
+  
   
