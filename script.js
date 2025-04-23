@@ -52,5 +52,9 @@ const hamburgerBtn = document.getElementById("hamburgerBtn");
 const navContainer = document.querySelector(".navbar");
 
 hamburgerBtn.addEventListener("click", () => {
-  navContainer.classList.toggle("nav-open");
-});
+    const navOpen = navContainer.classList.toggle("nav-open");
+  
+    // Adjust scroll padding to match the height of expanded menu
+    document.documentElement.style.scrollPaddingTop = navOpen ? "160px" : "64px";
+  });
+  
