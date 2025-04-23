@@ -28,9 +28,27 @@
     color: #f5f5f5;
   }
   
-  html:not(.theme-transition) * {
-    transition: none !important;
-  }  
+  html,
+body,
+.theme-toggle,
+.navbar,
+.footer,
+.project-card,
+.hero,
+.subnav-bar {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+html:not(.theme-transition) body,
+html:not(.theme-transition) .theme-toggle,
+html:not(.theme-transition) .navbar,
+html:not(.theme-transition) .footer,
+html:not(.theme-transition) .project-card,
+html:not(.theme-transition) .hero,
+html:not(.theme-transition) .subnav-bar {
+  transition: none !important;
+}
+
   
   @media (min-width: 769px) {
     html {
