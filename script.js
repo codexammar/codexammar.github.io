@@ -1,4 +1,4 @@
-// Animate sections as you scroll
+// Scroll fade animation
 const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
@@ -12,5 +12,11 @@ const observer = new IntersectionObserver(
   
   document.querySelectorAll(".content").forEach(section => {
     observer.observe(section);
+  });
+  
+  // Dark mode toggle
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
   });
   
