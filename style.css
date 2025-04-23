@@ -87,35 +87,33 @@
     color: #0070f3;
   }
   
-  /* SUBNAV DROPDOWN */
-  .subnav-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
+  /* ----------------------------------------------
+ * SECONDARY SUBNAV BAR UNDER MAIN NAV
+ * ---------------------------------------------- */
+.subnav-bar {
     display: none;
-    background: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    justify-content: center;
+    gap: 2rem;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
-    flex-direction: column;
-    gap: 0.5rem;
-    white-space: nowrap;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    transition: all 0.3s ease;
   }
   
-  .has-subnav:hover .subnav-dropdown {
+  .has-subnav:hover ~ .subnav-bar {
     display: flex;
   }
   
-  .subnav-dropdown a {
-    font-size: 0.95rem;
-    color: #444;
+  .subnav-bar a {
     text-decoration: none;
+    color: #444;
+    font-size: 0.95rem;
     transition: color 0.3s ease;
   }
   
-  .subnav-dropdown a:hover {
+  .subnav-bar a:hover {
     color: #0070f3;
-  }  
+  }
   
   /* ----------------------------------------------
    * HERO SECTION
@@ -240,17 +238,19 @@
     color: #90caf9;
   }
   
-  body.dark-mode .subnav-dropdown {
-    background: #2a2a2a;
+/* DARK MODE for subnav */
+body.dark-mode .subnav-bar {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
   }
   
-  body.dark-mode .subnav-dropdown a {
+  body.dark-mode .subnav-bar a {
     color: #ccc;
   }
   
-  body.dark-mode .subnav-dropdown a:hover {
+  body.dark-mode .subnav-bar a:hover {
     color: #90caf9;
-  }  
+  }
   
   /* ----------------------------------------------
    * RESPONSIVE STYLES
