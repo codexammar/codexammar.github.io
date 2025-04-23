@@ -292,21 +292,44 @@
     }
   }
 
-  /* Hamburger icon (hidden on desktop) */
+ /* Hamburger animation - ☰ to ✖ */
 .hamburger {
     display: none;
-    font-size: 1.5rem;
-    background: none;
+    width: 28px;
+    height: 22px;
+    flex-direction: column;
+    justify-content: space-between;
     border: none;
-    color: #222;
+    background: none;
     cursor: pointer;
+    padding: 0;
+    z-index: 1001;
   }
   
-  body.dark-mode .hamburger {
-    color: #f5f5f5;
+  .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #222;
+    border-radius: 4px;
+    transition: all 0.3s ease;
   }
   
-  /* Mobile nav toggle state */
+  body.dark-mode .bar {
+    background-color: #f5f5f5;
+  }
+  
+  /* Animate into X */
+  .nav-open .bar.top {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .nav-open .bar.middle {
+    opacity: 0;
+  }
+  .nav-open .bar.bottom {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  /* Mobile nav dropdown */
   .nav-open .nav-links {
     display: flex !important;
     flex-direction: column;
@@ -315,8 +338,11 @@
     left: 0;
     width: 100%;
     background: white;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-10px);
+    opacity: 0;
+    animation: fadeSlideIn 0.3s ease forwards;
     z-index: 999;
   }
   
@@ -324,16 +350,37 @@
     background: #1e1e1e;
   }
   
+  /* Backdrop blur when nav is open */
+  .nav-open::before {
+    content: '';
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(6px);
+    z-index: 998;
+  }
+  
+  /* Smooth dropdown animation */
+  @keyframes fadeSlideIn {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
   /* Responsive behavior */
   @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
     .nav-links {
       display: none;
       flex-direction: column;
       gap: 1.5rem;
-    }
-  
-    .hamburger {
-      display: block;
     }
   
     .nav-container {
@@ -357,5 +404,6 @@
       display: flex !important;
     }
   }
+  
   
   
