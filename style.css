@@ -224,7 +224,7 @@
   }
   
   body.dark-mode .hero {
-    background: linear-gradient(to right, #8a7843, #8a7843);
+    background: linear-gradient(to right, #8a7843, #000000);
   }
   
   body.dark-mode .hero h1,
