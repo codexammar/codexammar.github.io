@@ -39,15 +39,14 @@
     color: #f5f5f5;
   }
   
-  /* ----------------------------------------------
-   * NAVBAR: BASE, EXPANDED, & SUBNAV STYLES
-   * ---------------------------------------------- */
-  .navbar {
+/* ----------------------------------------------
+ * NAVBAR: BASE & FIXED SUBNAV STYLES
+ * ---------------------------------------------- */
+ .navbar {
     background: white;
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: all 0.3s ease;
     box-shadow: 0 1px 5px rgba(0,0,0,0.08);
   }
   
@@ -58,70 +57,63 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: padding 0.3s ease;
-  }
-  
-  .navbar.expanded .nav-container {
-    padding: 2rem 2rem;
   }
   
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    transition: font-size 0.3s ease;
-  }
-  
-  .navbar.expanded .logo {
-    font-size: 1.8rem;
   }
   
   .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
-    transition: font-size 0.3s ease;
     align-items: center;
   }
   
   .nav-item {
-    position: relative;
     font-size: 1rem;
-    transition: font-size 0.3s ease;
+    font-weight: 500;
     cursor: pointer;
-  }
-  
-  .navbar.expanded .nav-item {
-    font-size: 1.2rem;
-  }
-  
-  /* SUBNAV: INLINE CHILD BAR */
-  .subnav {
-    display: flex;
-    gap: 1.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
-    padding-left: 0.25rem;
-  }
-  
-  .navbar.expanded #projects:hover .subnav {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  .subnav a {
-    text-decoration: none;
-    color: #444;
-    font-size: 0.95rem;
     transition: color 0.3s ease;
   }
   
-  .subnav a:hover {
+  .nav-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .nav-item:hover {
     color: #0070f3;
   }
+  
+  /* SUBNAV BAR */
+  .subnav-bar {
+    display: none;
+    justify-content: center;
+    gap: 2rem;
+    background: #fafafa;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+  
+  .subnav-bar a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  
+  .subnav-bar a:hover {
+    color: #0070f3;
+  }
+  
+  /* SHOW SUBNAV WHEN HOVERING MAIN ITEM */
+  .has-subnav:hover + #subnav-projects {
+    display: flex;
+  }
+  
   
   /* ----------------------------------------------
    * HERO SECTION
@@ -202,10 +194,10 @@
     color: #777;
   }
   
-  /* ----------------------------------------------
-   * DARK MODE STYLES
-   * ---------------------------------------------- */
-  body.dark-mode {
+    /* ----------------------------------------------
+    * DARK MODE STYLES
+    * ---------------------------------------------- */
+body.dark-mode {
     background: #121212;
     color: #f5f5f5;
   }
@@ -230,7 +222,7 @@
   }
   
   body.dark-mode .hero {
-    background: linear-gradient(to right, #8a7843, #8a7843);
+    background: linear-gradient(to right, #8a7843, #302e29);
   }
   
   body.dark-mode .hero h1,
@@ -238,13 +230,18 @@
     color: #fdfdfd;
   }
   
-  body.dark-mode .subnav a {
+  body.dark-mode .subnav-bar {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
+  }
+  
+  body.dark-mode .subnav-bar a {
     color: #ccc;
   }
   
-  body.dark-mode .subnav a:hover {
+  body.dark-mode .subnav-bar a:hover {
     color: #90caf9;
-  }
+  }  
   
   /* ----------------------------------------------
    * RESPONSIVE STYLES
