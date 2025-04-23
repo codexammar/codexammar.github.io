@@ -87,22 +87,37 @@
     color: #0070f3;
   }
   
-  /* ----------------------------------------------
- * SECONDARY SUBNAV BAR UNDER MAIN NAV
+/* ----------------------------------------------
+ * SECONDARY SUBNAV BAR WITH SMOOTH ANIMATION
  * ---------------------------------------------- */
 .subnav-bar {
-    display: none;
-    justify-content: center;
-    gap: 2rem;
-    padding: 0.75rem 1rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
     background: #fafafa;
+    padding: 0 1rem;
     border-top: 1px solid #eee;
-    transition: all 0.3s ease;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    white-space: nowrap;
   }
   
-  .navbar:hover .subnav-bar {
-    display: flex;
-  }  
+  #projects:hover + #projects-subnav {
+    opacity: 1;
+    max-height: 200px;
+    transform: translateY(0);
+    pointer-events: auto;
+    padding: 0.75rem 1rem;
+  }
   
   .subnav-bar a {
     text-decoration: none;
@@ -238,19 +253,19 @@
     color: #90caf9;
   }
   
-/* DARK MODE for subnav */
-body.dark-mode .subnav-bar {
+    /* DARK MODE for subnav */
+    body.dark-mode .subnav-bar {
     background: #2c2c2c;
     border-top: 1px solid #444;
-  }
-  
-  body.dark-mode .subnav-bar a {
+    }
+
+    body.dark-mode .subnav-bar a {
     color: #ccc;
-  }
-  
-  body.dark-mode .subnav-bar a:hover {
+    }
+
+    body.dark-mode .subnav-bar a:hover {
     color: #90caf9;
-  }
+    }
   
   /* ----------------------------------------------
    * RESPONSIVE STYLES
