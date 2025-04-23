@@ -75,21 +75,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   
-    // --- Anchor click behavior (smooth scroll + close menu) ---
+    // --- Anchor click behavior (manual smooth scroll to avoid subnav glitch) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener("click", function (e) {
-        const target = document.querySelector(this.getAttribute("href"));
+        const href = this.getAttribute("href");
+        const target = document.querySelector(href);
+  
         if (target) {
           e.preventDefault();
-          const navbarHeight = 64;
-          const targetOffset = target.offsetTop - navbarHeight;
   
-          window.scrollTo({
-            top: targetOffset,
-            behavior: "smooth"
-          });
-  
+          // Close mobile menu if open
           removeNav();
+  
+          // Scroll after short delay to allow DOM layout to stabilize
+          setTimeout(() => {
+            const offset = 110; // navbar + subnav height
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+  
+            window.scrollTo({
+              top,
+              behavior: "smooth"
+            });
+          }, 10);
         }
       });
     });
