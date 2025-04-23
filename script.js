@@ -1,26 +1,28 @@
-// Scroll fade animation
-const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = "fadeInUp 1s ease forwards";
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+// script.js
+
+// Theme toggle and persistence
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
   
-  document.querySelectorAll(".content").forEach(section => {
-    observer.observe(section);
-  });
-  
-  // Dark mode toggle (runs only after DOM is ready)
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("themeToggle");
-    if (toggle) {
-      toggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-      });
+    // Check stored preference
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
     }
+  
+    // Theme toggle logic
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+  
+      if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙";
+      }
+    });
   });
   
