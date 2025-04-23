@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
               behavior: "smooth"
             });
           }, 10);
+          this.blur(); // remove focus from clicked link
         }
       });
     });

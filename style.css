@@ -60,6 +60,10 @@
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
     height: 64px;
   }
+
+  .navbar a:focus {
+    outline: none;
+  }  
   
   .nav-container {
     display: flex;
