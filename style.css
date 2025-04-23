@@ -100,9 +100,9 @@
     transition: all 0.3s ease;
   }
   
-  .has-subnav:hover ~ .subnav-bar {
+  .navbar:hover .subnav-bar {
     display: flex;
-  }
+  }  
   
   .subnav-bar a {
     text-decoration: none;
