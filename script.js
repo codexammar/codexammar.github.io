@@ -43,26 +43,28 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // --- Subnav show/hide on hover (navbar + section)
     if (window.innerWidth > 768) {
-      let subnavTimeout;
-  
-      const showSubnav = () => {
-        clearTimeout(subnavTimeout);
-        subnav.classList.add("show-subnav");
-      };
-  
-      const hideSubnav = () => {
-        subnavTimeout = setTimeout(() => {
-          subnav.classList.remove("show-subnav");
-        }, 200);
-      };
-  
-      projectsNavItem.addEventListener("mouseenter", showSubnav);
-      projectsNavItem.addEventListener("mouseleave", hideSubnav);
-      subnav.addEventListener("mouseenter", showSubnav);
-      subnav.addEventListener("mouseleave", hideSubnav);
-      projectsSection.addEventListener("mouseenter", showSubnav);
-      projectsSection.addEventListener("mouseleave", hideSubnav);
-    }
+        let subnavTimeout;
+      
+        const showSubnav = () => {
+          if (!body.classList.contains("nav-open")) {
+            clearTimeout(subnavTimeout);
+            subnav.classList.add("show-subnav");
+          }
+        };
+      
+        const hideSubnav = () => {
+          subnavTimeout = setTimeout(() => {
+            subnav.classList.remove("show-subnav");
+          }, 200);
+        };
+      
+        projectsNavItem.addEventListener("mouseenter", showSubnav);
+        projectsNavItem.addEventListener("mouseleave", hideSubnav);
+        subnav.addEventListener("mouseenter", showSubnav);
+        subnav.addEventListener("mouseleave", hideSubnav);
+        projectsSection.addEventListener("mouseenter", showSubnav);
+        projectsSection.addEventListener("mouseleave", hideSubnav);
+    }      
   
     // --- Hamburger open/close
     hamburgerBtn.addEventListener("click", () => {
