@@ -13,35 +13,41 @@
   </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="nav-container">
-          <div class="logo">CodexAmmar</div>
-          <nav class="main-nav">
-            <ul class="nav-links">
-              <li class="nav-item has-subnav" id="projects">Projects</li>
-              <li class="nav-item"><a href="#about">About</a></li>
-              <li class="nav-item"><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-          <button id="themeToggle" class="theme-toggle">🌙</button>
-        </div>
-        <div class="subnav-bar" id="subnav-projects">
-          <a href="#project1">Anomaly Detection</a>
-          <a href="#project2">Library API</a>
-          <a href="#project3">E-Learning App</a>
-        </div>
-      </header>      
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">CodexAmmar</div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item has-subnav">
+            <a href="#">Projects</a>
+            <div class="subnav-dropdown">
+              <a href="#project1">Anomaly Detection</a>
+              <a href="#project2">Library API</a>
+              <a href="#project3">E-Learning App</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="#about">About</a></li>
+          <li class="nav-item"><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Hi, I'm Ammar</h1>
     <p>AI & Fullstack Developer | Computer Engineering Student</p>
   </section>
 
+  <!-- ABOUT -->
   <section class="content" id="about">
     <h2>About Me</h2>
     <p>I’m passionate about building intelligent systems and beautiful code. My work includes real-time ML pipelines, secure backend APIs, and cross-platform solutions.</p>
   </section>
 
+  <!-- PROJECTS -->
   <section class="content" id="projects">
     <h2>Projects</h2>
     <div class="project-grid">
@@ -63,14 +69,16 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section class="content" id="contact">
     <h2>Contact Me</h2>
     <p>Email: syedammar.work@gmail.com</p>
     <p>GitHub: <a href="https://github.com/codexammar" target="_blank">codexammar</a></p>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2025 CodexAmmar. All rights reserved. v1.03</p>
+    <p>© 2025 CodexAmmar. All rights reserved. v1.04</p>
   </footer>
 </body>
 </html>

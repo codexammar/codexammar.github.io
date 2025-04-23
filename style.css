@@ -40,7 +40,7 @@
   }
   
 /* ----------------------------------------------
- * NAVBAR: BASE & FIXED SUBNAV STYLES
+ * NAVBAR & DROPDOWN SUBNAV (CLEAN VERSION)
  * ---------------------------------------------- */
  .navbar {
     background: white;
@@ -51,12 +51,12 @@
   }
   
   .nav-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem 2rem;
   }
   
   .logo {
@@ -72,48 +72,50 @@
   }
   
   .nav-item {
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    position: relative;
   }
   
   .nav-item a {
     text-decoration: none;
-    color: inherit;
-  }
-  
-  .nav-item:hover {
-    color: #0070f3;
-  }
-  
-  /* SUBNAV BAR */
-  .subnav-bar {
-    display: none;
-    justify-content: center;
-    gap: 2rem;
-    background: #fafafa;
-    padding: 0.75rem 1rem;
-    border-top: 1px solid #eee;
-    transition: all 0.3s ease;
-  }
-  
-  .subnav-bar a {
-    text-decoration: none;
-    font-size: 0.95rem;
-    color: #555;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #222;
     transition: color 0.3s ease;
   }
   
-  .subnav-bar a:hover {
+  .nav-item a:hover {
     color: #0070f3;
   }
   
-  /* SHOW SUBNAV WHEN HOVERING MAIN ITEM */
-  .has-subnav:hover + #subnav-projects {
+  /* SUBNAV DROPDOWN */
+  .subnav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    flex-direction: column;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  
+  .has-subnav:hover .subnav-dropdown {
     display: flex;
   }
   
+  .subnav-dropdown a {
+    font-size: 0.95rem;
+    color: #444;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .subnav-dropdown a:hover {
+    color: #0070f3;
+  }  
   
   /* ----------------------------------------------
    * HERO SECTION
@@ -194,10 +196,10 @@
     color: #777;
   }
   
-    /* ----------------------------------------------
-    * DARK MODE STYLES
-    * ---------------------------------------------- */
-body.dark-mode {
+/* ----------------------------------------------
+ * DARK MODE STYLES
+ * ---------------------------------------------- */
+ body.dark-mode {
     background: #121212;
     color: #f5f5f5;
   }
@@ -222,7 +224,7 @@ body.dark-mode {
   }
   
   body.dark-mode .hero {
-    background: linear-gradient(to right, #8a7843, #302e29);
+    background: linear-gradient(to right, #8a7843, #8a7843);
   }
   
   body.dark-mode .hero h1,
@@ -230,16 +232,23 @@ body.dark-mode {
     color: #fdfdfd;
   }
   
-  body.dark-mode .subnav-bar {
-    background: #2c2c2c;
-    border-top: 1px solid #444;
+  body.dark-mode .nav-item a {
+    color: #eee;
   }
   
-  body.dark-mode .subnav-bar a {
+  body.dark-mode .nav-item a:hover {
+    color: #90caf9;
+  }
+  
+  body.dark-mode .subnav-dropdown {
+    background: #2a2a2a;
+  }
+  
+  body.dark-mode .subnav-dropdown a {
     color: #ccc;
   }
   
-  body.dark-mode .subnav-bar a:hover {
+  body.dark-mode .subnav-dropdown a:hover {
     color: #90caf9;
   }  
   
