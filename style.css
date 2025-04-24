@@ -555,28 +555,32 @@ html.theme-transition .theme-toggle {
   
   .toggle-btn {
     margin-top: 1rem;
-    background: #e0e0e0;              /* Light gray for light mode */
+    background: linear-gradient(to right, #f9f5ec, #ffffff); /* Light mode gradient */
     color: #222;
     border: none;
     padding: 0.5rem 1.25rem;
     font-size: 0.95rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.4s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
   
   .toggle-btn:hover {
-    background: #cfcfcf;              /* Slightly darker on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   }
   
-  /* Dark mode variant */
+  /* Dark mode gradient */
   html.dark-mode .toggle-btn {
-    background: #3399ff;              /* Light blue for dark mode */
-    color: #fff;
+    background: linear-gradient(to right, #8a7843, #000000);
+    color: #f5f5f5;
   }
   
   html.dark-mode .toggle-btn:hover {
-    background: #2277cc;              /* Deeper blue on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
   }  
   
   #aboutText .expandable {
