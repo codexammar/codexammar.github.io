@@ -565,6 +565,18 @@ html.theme-transition .theme-toggle {
     transition: background 0.4s ease, color 0.3s ease, transform 0.2s ease;
     font-weight: 500;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    appearance: none;         /* Removes OS/browser-specific styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;            /* Removes blue border on click */
+    user-select: none;
+  }
+
+  .toggle-btn:focus,
+  .toggle-btn:active {
+    outline: none;
+    background: inherit;      /* Prevents browser blue click tint */
+    box-shadow: none;         /* Optional: if shadow appears on click */
   }
   
   .toggle-btn:hover {
