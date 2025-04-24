@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Library API | CodexAmmar</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Library API Project</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Overview</h2>
+          <p>
+            A fully functional Library Management System built with <strong>FastAPI</strong>, <strong>MongoDB</strong>, and a custom <strong>React frontend</strong>.
+            The system supports user login, book borrowing/returning, admin CRUD controls, and JWT-based authentication.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/library-api/swagger.png" alt="FastAPI Swagger UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Authentication</h2>
+          <p>
+            Every route is protected with role-based access using JWT tokens. The Swagger docs UI lets you test endpoints
+            while handling token-based access headers. Admin and user roles are clearly defined at login.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/library-api/auth.png" alt="JWT Auth on Swagger UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Live MongoDB Integration</h2>
+          <p>
+            All book and user data is stored in a live MongoDB Atlas cluster. The FastAPI backend reads, writes, and updates
+            collections in real-time with automatic validation and data model enforcement.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/library-api/MongoDB.png" alt="MongoDB Atlas Screenshot">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>UI: Borrow & Recommend</h2>
+          <p>
+            Users can view borrowed books and receive dynamic reading suggestions. The recommendation system uses a
+            simple logic-based engine to offer book suggestions based on previous borrow history.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/library-api/LibUI.png" alt="Recommendation Page">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Admin Dashboard</h2>
+          <p>
+            Admins have full access to manage books and users, including adding new books, editing entries,
+            and deleting records. UI feedback clearly displays book status and ownership per user.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/library-api/LibUI2.png" alt="Admin Dashboard with All Books">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
