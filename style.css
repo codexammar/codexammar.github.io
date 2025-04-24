@@ -511,3 +511,27 @@ html.theme-transition .theme-toggle {
     transform: translateY(0) rotate(0);
   }
   
+  .toggle-btn {
+    margin-top: 1rem;
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    background: #005ac1;
+  }
+  
+  html.dark-mode .toggle-btn {
+    background: #3399ff;
+  }
+  
+  html.dark-mode .toggle-btn:hover {
+    background: #2277cc;
+  }
+  

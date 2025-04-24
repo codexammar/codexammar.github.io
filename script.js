@@ -112,5 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
         removeNav();
       }
     });
+
+    // --- About section toggler ---
+    const toggleBtn = document.getElementById("toggleAbout");
+    const toggleLessBtn = document.getElementById("toggleAboutLess");
+    const aboutFull = document.getElementById("aboutFull");
+    const aboutPreview = document.getElementById("aboutPreview");
+
+    toggleBtn.addEventListener("click", () => {
+    aboutFull.style.display = "block";
+    aboutPreview.style.display = "none";
+    });
+
+    toggleLessBtn.addEventListener("click", () => {
+    aboutFull.style.display = "none";
+    aboutPreview.style.display = "block";
+    });
+
   });
   
