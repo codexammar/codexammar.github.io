@@ -288,13 +288,16 @@ html.theme-transition .theme-toggle {
   }
   
   .project-card {
+    display: block;
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     padding: 2rem;
     transition: transform 0.23s ease, background 0.23s ease;
     text-align: center;
-  }
+    text-decoration: none; /* removes underline */
+    color: inherit;         /* keeps text black or white depending on theme */
+  }  
   
   .project-card:hover {
     transform: translateY(-10px);
