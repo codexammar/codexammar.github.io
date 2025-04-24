@@ -118,9 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const aboutText = document.getElementById("aboutText");
 
     toggleBtn.addEventListener("click", () => {
-    const isCollapsed = aboutText.classList.contains("collapsed");
-    aboutText.classList.toggle("collapsed");
-    toggleBtn.textContent = isCollapsed ? "Show Less" : "View More";
+    const isExpanded = aboutText.classList.toggle("expanded");
+    toggleBtn.textContent = isExpanded ? "Show Less" : "View More";
     });
 
   });

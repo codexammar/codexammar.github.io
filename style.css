@@ -576,3 +576,15 @@ html.theme-transition .theme-toggle {
     background: #2277cc;
   }
   
+  #aboutText .expandable {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+  
+  #aboutText.expanded .expandable {
+    max-height: 800px; /* large enough for all content */
+    opacity: 1;
+  }
+  
