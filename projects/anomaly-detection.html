@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anomaly Detection in AR | CodexAmmar</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Anomaly Detection in AR Environments</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Project Overview</h2>
+          <p>
+            This project leverages Unity3D, TensorFlow, and real-time webcam input to detect anomalies
+            in physical environments — specifically designed to detect defects like rotten or discolored fruit.
+            Using autoencoders and EfficientNetB0, it processes images in real time and provides live feedback.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/anomaly-detection/unity3d.png" alt="Unity 3D Bounding Box">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Dataset Generation</h2>
+          <p>
+            We created a fully custom dataset from Unity by rendering synthetic apple and banana scenes
+            under various lighting and rotation conditions. This allowed the model to learn generalized patterns
+            without requiring massive real-world data collection.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/anomaly-detection/dataset.png" alt="Synthetic Dataset Sample">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Model Design</h2>
+          <p>
+            Our deep autoencoder was trained entirely in Google Colab using TensorFlow. The model compresses and reconstructs
+            clean objects — allowing us to flag anything with high reconstruction error as anomalous. EfficientNetB0
+            was used as a backbone to extract efficient and meaningful features.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/anomaly-detection/colabpic.png" alt="Google Colab Notebook">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Live Application Results</h2>
+          <p>
+            The final application runs in real time, using a webcam feed to detect and highlight anomalies such as
+            discolored or malformed bananas. Visual heatmaps and bounding boxes are displayed via a responsive UI built in Unity.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/anomaly-detection/ADProg1.png" alt="Anomaly Detection Program UI 1">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Evaluation & Detection Example</h2>
+          <p>
+            Here's an example of a detection in action, showing real-time feedback of the system catching
+            an anomaly mid-frame. The autoencoder’s reconstruction error triggers the alert with minimal latency.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/anomaly-detection/ADProg2.png" alt="Anomaly Detection Program UI 2">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
