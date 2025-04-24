@@ -535,3 +535,44 @@ html.theme-transition .theme-toggle {
     background: #2277cc;
   }
   
+  #aboutText.collapsed .expandable {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+  }
+  
+  #aboutText .expandable {
+    max-height: 2000px; /* big enough to fit */
+    opacity: 1;
+    transition: all 0.4s ease;
+  }
+  
+  .centered-btn {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .toggle-btn {
+    background: #0070f3;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    background: #005ac1;
+  }
+  
+  html.dark-mode .toggle-btn {
+    background: #3399ff;
+  }
+  
+  html.dark-mode .toggle-btn:hover {
+    background: #2277cc;
+  }
+  
