@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Learning Platform | CodexAmmar</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Fleet Management E-Learning Platform</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Interactive Learning Platform</h2>
+          <p>
+            Built using modern JavaScript tooling, this platform provides a responsive interface for fleet managers to view, complete, and track their training progress through modular courses and events. After setup with <code>npm install</code> and <code>npm run dev</code>, users can explore an intuitive UI via <strong>localhost:5173</strong>.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/e-learning/pageUI.png" alt="Main Course and Events UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Courses & Event Navigation</h2>
+          <p>
+            Users can easily switch between “All,” “Not Completed,” and “Completed” courses — each tied to a loyalty points system. Events are also filterable by status (e.g. Upcoming, Signed Up), encouraging user engagement and point collection.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/e-learning/events.png" alt="Event Page Preview">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Embedded Content & Completion Flow</h2>
+          <p>
+            Each course supports embedded instructions, notes, and YouTube videos. Users complete a course by clicking a <strong>Completed</strong> button — awarding points and shifting it to their personal “Completed Courses” list.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/e-learning/youtubeembed.png" alt="Embedded YouTube in Course View">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
