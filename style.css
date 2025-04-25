@@ -638,7 +638,9 @@ html.theme-transition .theme-toggle {
   .contact-btn img {
     width: 20px;
     height: 20px;
-  }
+    object-fit: contain;
+    flex-shrink: 0;
+  }  
   
   html.dark-mode .contact-btn {
     background: linear-gradient(to right, #8a7843, #000000);
