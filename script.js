@@ -133,28 +133,28 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
   
   // Live clock (EST)
   function updateClock() {
-    const now = new Date();
-    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    const estOffset = -5 * 60;
-    const estTime = new Date(utc + estOffset * 60000);
-  
-    const hours = estTime.getHours();
-    const day = estTime.getDay(); // 0 = Sunday, 6 = Saturday
-  
-    const timeStr = estTime.toLocaleTimeString("en-US", {
+    const estTime = new Date().toLocaleString("en-US", {
+      timeZone: "America/Toronto",
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
     });
   
-    document.getElementById("clock").textContent = timeStr;
+    document.getElementById("clock").textContent = estTime;
   
-    const isWeekday = day >= 1 && day <= 5;
-    const isWeekend = day === 0 || day === 6;
+    const now = new Date();
+    const options = { timeZone: "America/Toronto", weekday: "short", hour: "numeric" };
+    const torontoTime = new Intl.DateTimeFormat("en-US", options).formatToParts(now);
+  
+    const day = torontoTime.find(part => part.type === "weekday").value;
+    const hour = parseInt(torontoTime.find(part => part.type === "hour").value);
+  
+    const isWeekday = !["Sat", "Sun"].includes(day);
+    const isWeekend = ["Sat", "Sun"].includes(day);
   
     const isAvailable =
-      (isWeekday && hours >= 11 && hours < 22) ||
-      (isWeekend && hours >= 12 && hours < 15);
+      (isWeekday && hour >= 11 && hour < 22) ||
+      (isWeekend && hour >= 12 && hour < 15);
   
     const badge = document.getElementById("availabilityBadge");
     if (isAvailable) {
