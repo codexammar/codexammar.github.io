@@ -187,7 +187,7 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
     link.click();
 
     // Copy to clipboard
-    const contactInfo = `syedammar.work@gmail.com\nhttps://codexammar.github.io`;
+    const contactInfo = `syedammar.work@gmail.com\n+1 416 809 4025\nhttps://codexammar.github.io`;
     navigator.clipboard.writeText(contactInfo).then(() => {
         referStatus.textContent = "Copied email + website. Resume downloaded ✅";
         setTimeout(() => (referStatus.textContent = ""), 3000);
