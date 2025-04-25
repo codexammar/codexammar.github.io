@@ -682,4 +682,55 @@ html.theme-transition .theme-toggle {
   .badge.unavailable {
     background-color: #dc3545;
     color: #fff;
+  }
+
+  .refer-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    transition: transform 0.23s ease, background 0.23s ease;
+  }
+  
+  .refer-card:hover {
+    transform: translateY(-6px);
+  }
+  
+  .refer-btn {
+    background: linear-gradient(to right, #f9f5ec, #ffffff);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .refer-btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .refer-status {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: #0070f3;
+  }
+  
+  html.dark-mode .refer-card {
+    background: #1e1e1e;
+    color: #eee;
+  }
+  
+  html.dark-mode .refer-btn {
+    background: linear-gradient(to right, #8a7843, #000000);
+    color: #f5f5f5;
+  }
+  
+  html.dark-mode .refer-btn:hover {
+    background: linear-gradient(to right, #b3955e, #1a1a1a);
   }  

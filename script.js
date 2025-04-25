@@ -174,5 +174,24 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
   
   setInterval(updateClock, 1000);
   updateClock();  
-  });
+
+  // Refer Me Button
+    const referBtn = document.getElementById("referBtn");
+    const referStatus = document.getElementById("referStatus");
+
+    referBtn?.addEventListener("click", () => {
+    // Download the resume
+    const link = document.createElement("a");
+    link.href = "assets/files/resume.pdf";
+    link.download = "Ammar_Resume.pdf";
+    link.click();
+
+    // Copy to clipboard
+    const contactInfo = `syedammar.work@gmail.com\nhttps://codexammar.github.io`;
+    navigator.clipboard.writeText(contactInfo).then(() => {
+        referStatus.textContent = "Copied email + website. Resume downloaded ✅";
+        setTimeout(() => (referStatus.textContent = ""), 3000);
+    });
+    });
+});
   
