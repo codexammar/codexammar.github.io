@@ -135,15 +135,39 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
   function updateClock() {
     const now = new Date();
     const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-    const estOffset = -5 * 60; // EST is UTC-5
+    const estOffset = -5 * 60;
     const estTime = new Date(utc + estOffset * 60000);
+  
+    const hours = estTime.getHours();
+    const day = estTime.getDay(); // 0 = Sunday, 6 = Saturday
+  
     const timeStr = estTime.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
     });
+  
     document.getElementById("clock").textContent = timeStr;
+  
+    const isWeekday = day >= 1 && day <= 5;
+    const isWeekend = day === 0 || day === 6;
+  
+    const isAvailable =
+      (isWeekday && hours >= 11 && hours < 22) ||
+      (isWeekend && hours >= 12 && hours < 15);
+  
+    const badge = document.getElementById("availabilityBadge");
+    if (isAvailable) {
+      badge.textContent = "Available";
+      badge.classList.add("available");
+      badge.classList.remove("unavailable");
+    } else {
+      badge.textContent = "Unavailable";
+      badge.classList.add("unavailable");
+      badge.classList.remove("available");
+    }
   }
+  
   setInterval(updateClock, 1000);
   updateClock();  
   });
