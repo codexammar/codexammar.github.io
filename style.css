@@ -606,4 +606,60 @@ html.theme-transition .theme-toggle {
     max-height: 800px; /* large enough for all content */
     opacity: 1;
   }
+
+  .contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .contact-btn {
+    background: linear-gradient(to right, #f9f5ec, #ffffff);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .contact-btn:hover {
+    transform: translateY(-3px);
+  }
+  
+  .contact-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  html.dark-mode .contact-btn {
+    background: linear-gradient(to right, #8a7843, #000000);
+    color: #f5f5f5;
+  }
+  
+  html.dark-mode .contact-btn:hover {
+    background: linear-gradient(to right, #b3955e, #1a1a1a);
+  }
+  
+  .timezone-box {
+    margin-top: 2rem;
+    background: rgba(0,0,0,0.04);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: inherit;
+  }
+  
+  html.dark-mode .timezone-box {
+    background: rgba(255,255,255,0.06);
+  }
+  
   

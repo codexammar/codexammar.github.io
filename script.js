@@ -122,5 +122,29 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleBtn.textContent = isExpanded ? "Show Less" : "View More";
     });
 
+    // Click to copy email
+document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
+    const email = "syedammar.work@gmail.com";
+    navigator.clipboard.writeText(email);
+    const copyText = document.getElementById("copyText");
+    copyText.textContent = "Copied!";
+    setTimeout(() => (copyText.textContent = "Copy Email"), 2000);
+  });
+  
+  // Live clock (EST)
+  function updateClock() {
+    const now = new Date();
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const estOffset = -5 * 60; // EST is UTC-5
+    const estTime = new Date(utc + estOffset * 60000);
+    const timeStr = estTime.toLocaleTimeString("en-US", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    document.getElementById("clock").textContent = timeStr;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();  
   });
   
