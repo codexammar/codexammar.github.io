@@ -193,5 +193,14 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
         setTimeout(() => (referStatus.textContent = ""), 3000);
     });
     });
+
+    // Click to copy phone number
+    document.getElementById("copyPhoneBtn")?.addEventListener("click", () => {
+        const phone = "+1 416 809 4025";
+        navigator.clipboard.writeText(phone);
+        const copyPhoneText = document.getElementById("copyPhoneText");
+        copyPhoneText.textContent = "Copied!";
+        setTimeout(() => (copyPhoneText.textContent = "Copy Phone"), 2000);
+    });  
 });
   
