@@ -147,7 +147,11 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
     const torontoTime = new Intl.DateTimeFormat("en-US", options).formatToParts(now);
   
     const day = torontoTime.find(part => part.type === "weekday").value;
-    const hour = parseInt(torontoTime.find(part => part.type === "hour").value);
+    const hourPart = torontoTime.find(part => part.type === "hour").value;
+    const dayPeriod = torontoTime.find(part => part.type === "dayPeriod").value;
+    let hour = parseInt(hourPart);
+    if (dayPeriod === "PM" && hour !== 12) hour += 12;
+    if (dayPeriod === "AM" && hour === 12) hour = 0;
   
     const isWeekday = !["Sat", "Sun"].includes(day);
     const isWeekend = ["Sat", "Sun"].includes(day);
