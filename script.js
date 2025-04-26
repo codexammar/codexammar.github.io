@@ -219,9 +219,10 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
         }
     );
 
-    timelineItems.forEach((item) => {
+    timelineItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`; // 0.2s delay between items
         observer.observe(item);
-    });
+    });      
 
 });
   
