@@ -798,4 +798,42 @@ html.theme-transition .theme-toggle {
     color: #aaa;
     font-style: italic;
   }
+
+  .skills-card {
+    background: linear-gradient(to right, #f9f5ec, #ffffff);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    margin-top: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background 0.5s ease;
+  }
+  
+  .skills-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+    margin-bottom: 0.5rem;
+  }
+  
+  .morphing-skill {
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 1;
+  }
+  
+  .morphing-skill.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  
+  html.dark-mode .skills-card {
+    background: linear-gradient(to right, #8a7843, #000000);
+    color: #f5f5f5;
+  }
+  
   

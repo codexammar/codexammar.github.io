@@ -222,7 +222,35 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
     timelineItems.forEach((item, index) => {
         item.style.transitionDelay = `${index * 0.2}s`; // 0.2s delay between items
         observer.observe(item);
-    });      
+    });    
+    
+    const skills = [
+        "JavaScript",
+        "Python",
+        "TensorFlow",
+        "OpenCV",
+        "React",
+        "FastAPI",
+        "MongoDB",
+        "Docker",
+        "Node.js",
+        "TypeScript"
+      ];
+      
+      let skillIndex = 0;
+      const morphEl = document.getElementById("morphingSkill");
+      
+      function showNextSkill() {
+        morphEl.classList.add("fade-out");
+        setTimeout(() => {
+          skillIndex = (skillIndex + 1) % skills.length;
+          morphEl.textContent = skills[skillIndex];
+          morphEl.classList.remove("fade-out");
+        }, 500); // match CSS transition duration
+      }
+      
+      morphEl.textContent = skills[0]; // initial load
+      setInterval(showNextSkill, 2500); // change every 2.5s      
 
 });
   
