@@ -914,4 +914,12 @@ html.dark-mode .skill::before {
   transform: scale(1);
 }
 
+/* Responsive Skills for Mobile */
+@media (max-width: 768px) {
+  .skill {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }  
+}
+
   
