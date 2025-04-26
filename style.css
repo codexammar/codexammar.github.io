@@ -806,12 +806,16 @@ html.theme-transition .theme-toggle {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     text-align: center;
     margin-top: 2rem;
-    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    max-width: 400px;
     overflow: hidden;
     position: relative;
-    transition: background 0.5s ease, max-width 0.5s ease;
+    height: 120px; /* set fixed height for clean centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
   }
   
   .skills-card.expandable:hover {
@@ -840,6 +844,7 @@ html.theme-transition .theme-toggle {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    align-items: center;
   }
   
   .skills-track span {
@@ -854,7 +859,29 @@ html.theme-transition .theme-toggle {
     opacity: 0;
   }
   
-  /* Scrolling animation */
+  /* Add a fading effect on edges */
+  .skills-card::before,
+  .skills-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .skills-card::before {
+    left: 0;
+    background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
+  }
+  
+  .skills-card::after {
+    right: 0;
+    background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%);
+  }
+  
+  /* Scrolling keyframes */
   @keyframes scrollSkills {
     from {
       transform: translateX(0);
@@ -864,7 +891,7 @@ html.theme-transition .theme-toggle {
     }
   }
   
-  /* Mobile behavior */
+  /* Mobile Behavior */
   @media (max-width: 768px) {
     .skills-card.expandable {
       max-width: 400px;
@@ -879,9 +906,17 @@ html.theme-transition .theme-toggle {
     }
   }
   
-  /* Dark Mode */
+  /* Dark Mode Adjustments */
   html.dark-mode .skills-card {
     background: #1e1e1e;
     color: #f5f5f5;
-  } 
+  }
+  
+  html.dark-mode .skills-card::before {
+    background: linear-gradient(to right, #1e1e1e 0%, rgba(30,30,30,0) 100%);
+  }
+  
+  html.dark-mode .skills-card::after {
+    background: linear-gradient(to left, #1e1e1e 0%, rgba(30,30,30,0) 100%);
+  }  
   
