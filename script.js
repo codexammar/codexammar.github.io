@@ -246,7 +246,7 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
           skillIndex = (skillIndex + 1) % skills.length;
           morphEl.textContent = skills[skillIndex];
           morphEl.classList.remove("fade-out");
-        }, 500); // match CSS transition duration
+        }, 550); // match CSS transition duration
       }
       
       morphEl.textContent = skills[0]; // initial load

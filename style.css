@@ -524,7 +524,7 @@ html.theme-transition .theme-toggle {
   }
   
   .toggle-btn:hover {
-    background: #005ac1;
+    background: linear-gradient(to right, #b3955e, #1a1a1a);
   }
   
   html.dark-mode .toggle-btn {
