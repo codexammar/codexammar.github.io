@@ -752,22 +752,21 @@ html.theme-transition .theme-toggle {
   
   .timeline-line {
     position: absolute;
-    top: 50%;
+    top: 28px; /* aligns with the dot */
     left: 0;
-    height: 3px;
     width: 100%;
+    height: 3px;
     background: #ccc;
-    transform: translateY(-50%);
     z-index: 0;
   }
   
   .timeline-item {
-    flex: 1;
+    position: relative;
     text-align: center;
+    flex: 1;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    position: relative;
     z-index: 1;
   }
   
@@ -781,21 +780,22 @@ html.theme-transition .theme-toggle {
     height: 14px;
     background: dodgerblue;
     border-radius: 50%;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
+    position: relative;
+    top: 22px; /* places it right on the line */
+    z-index: 2;
   }
   
   .timeline-title {
     font-weight: bold;
     font-size: 1.1rem;
-    line-height: 1.4;
-    max-width: 260px;
-    margin: 0 auto;
+    margin-top: 2.5rem;
   }
   
   .timeline-subtitle {
     font-size: 0.9rem;
+    margin-top: 0.5rem;
     color: #aaa;
     font-style: italic;
-    margin-top: 0.5rem;
-  }  
+  }
   
