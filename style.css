@@ -809,14 +809,13 @@ html.theme-transition .theme-toggle {
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    transition: background 0.5s ease;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.5s ease, max-width 0.5s ease;
   }
   
-  .skills-label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #888;
-    margin-bottom: 0.5rem;
+  .skills-card.expandable:hover {
+    max-width: 800px;
   }
   
   .morphing-skill {
@@ -831,9 +830,58 @@ html.theme-transition .theme-toggle {
     transform: scale(0.95);
   }
   
-  html.dark-mode .skills-card {
-    background: #1e1e1e;;
-    color: #f5f5f5;
+  .skills-track {
+    display: inline-flex;
+    gap: 2rem;
+    animation: scrollSkills 20s linear infinite;
+    white-space: nowrap;
+    font-size: 1.4rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
   }
   
+  .skills-track span {
+    flex: none;
+  }
+  
+  .skills-card.expandable:hover .skills-track {
+    opacity: 1;
+  }
+  
+  .skills-card.expandable:hover .morphing-skill {
+    opacity: 0;
+  }
+  
+  /* Scrolling animation */
+  @keyframes scrollSkills {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Mobile behavior */
+  @media (max-width: 768px) {
+    .skills-card.expandable {
+      max-width: 400px;
+    }
+  
+    .skills-track {
+      display: none;
+    }
+  
+    .morphing-skill {
+      opacity: 1;
+    }
+  }
+  
+  /* Dark Mode */
+  html.dark-mode .skills-card {
+    background: #1e1e1e;
+    color: #f5f5f5;
+  } 
   
