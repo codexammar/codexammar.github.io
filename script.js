@@ -250,7 +250,7 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
       }
       
       morphEl.textContent = skills[0]; // initial load
-      setInterval(showNextSkill, 2500); // change every 2.5s      
+      setInterval(showNextSkill, 500); // change every 2.5s      
 
 });
   
