@@ -917,12 +917,14 @@ html.dark-mode .skill::before {
 /* Responsive Skills for Mobile */
 @media (max-width: 768px) {
   .skill {
-    font-size: 0.75rem;
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
     line-height: 1.3;
   }
 
   .skill::before {
-    display: none;
+    width: 5px;
+    height: 5px;
+    margin-right: 4px; /* slightly tighter gap */
   }  
 
   #skills {
