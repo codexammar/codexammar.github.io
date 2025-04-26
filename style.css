@@ -922,9 +922,7 @@ html.dark-mode .skill::before {
   }
 
   .skill::before {
-    width: 5px;
-    height: 5px;
-    margin-right: 4px; /* slightly tighter gap */
+    display: none;
   }  
 
   #skills {
