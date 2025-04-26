@@ -799,6 +799,66 @@ html.theme-transition .theme-toggle {
     font-style: italic;
   }
 
+  /* Responsive Timeline for Mobile */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .timeline-wrapper {
+    margin: 4rem auto 2rem;
+  }
+
+  .timeline-line {
+    top: 0;
+    left: 25px;
+    width: 3px;
+    height: 100%;
+    background: #ccc;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .timeline-item.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .timeline-dot {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(to right, #8a7843, #000000);
+    border-radius: 50%;
+    position: relative;
+    margin-right: 1rem; /* space between dot and text */
+    left: 0;
+    top: 0;
+    transform: none;
+  }  
+
+  .timeline-title {
+    margin-top: 0;
+  }
+
+  .timeline-subtitle {
+    margin-top: 0.5rem;
+  }
+}
+
+
  /* SKILLS NEW STYLE */
 .skills-wrapper {
   position: relative;
