@@ -799,128 +799,59 @@ html.theme-transition .theme-toggle {
     font-style: italic;
   }
 
-  .skills-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 400px;
-    overflow: hidden;
-    position: relative;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease;
-  }
-  
-  .skills-card.expandable:hover {
-    max-width: 800px;
-  }
-  
-  .morphing-skill {
-    font-size: 1.6rem;
-    font-weight: bold;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    opacity: 1;
-    z-index: 2;
-  }
-  
-  .morphing-skill.fade-out {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  
-  .skills-track {
-    position: absolute;
-    display: inline-flex;
-    gap: 2rem;
-    animation: scrollSkills 20s linear infinite;
-    white-space: nowrap;
-    font-size: 1.4rem;
-    font-weight: bold;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  
-  .skills-track span {
-    flex: none;
-  }
-  
-  .skills-card.expandable:hover .skills-track {
-    opacity: 1;
-  }
-  
-  .skills-card.expandable:hover .morphing-skill {
-    opacity: 0;
-  }
-  
-  /* Add fading edges */
-  .skills-card::before,
-  .skills-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 60px;
-    height: 100%;
-    z-index: 3;
-    pointer-events: none;
-  }
-  
-  .skills-card::before {
-    left: 0;
-    background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
-  }
-  
-  .skills-card::after {
-    right: 0;
-    background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%);
-  }
-  
-  /* Smooth infinite scroll */
-  @keyframes scrollSkills {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-  
-  /* Mobile behavior */
-  @media (max-width: 768px) {
-    .skills-card.expandable {
-      max-width: 400px;
-    }
-  
-    .skills-track {
-      display: none;
-    }
-  
-    .morphing-skill {
-      opacity: 1;
-    }
-  }
-  
-  /* Dark mode */
-  html.dark-mode .skills-card {
-    background: #1e1e1e;
-    color: #f5f5f5;
-  }
-  
-  html.dark-mode .skills-card::before {
-    background: linear-gradient(to right, #1e1e1e 0%, rgba(30,30,30,0) 100%);
-  }
-  
-  html.dark-mode .skills-card::after {
-    background: linear-gradient(to left, #1e1e1e 0%, rgba(30,30,30,0) 100%);
-  }  
+ /* SKILLS NEW STYLE */
+.skills-wrapper {
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+  padding: 2rem;
+}
+
+.skill {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+  list-style: none; /* Remove default bullet */
+  height: 60px; /* Fixed height to prevent grid shifting */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Custom bullet point ONLY if not empty */
+.skill::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #0070f3;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+  visibility: hidden; /* hidden by default */
+}
+
+html.dark-mode .skill::before {
+  background-color: #90caf9;
+}
+
+.skill.show::before {
+  visibility: visible; /* only show bullet when visible */
+}
+
+.skill.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
   

@@ -224,40 +224,87 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
         observer.observe(item);
     });    
     
-    const skills = [
-        "JavaScript",
-        "Python",
-        "TensorFlow",
-        "OpenCV",
-        "React",
-        "FastAPI",
-        "MongoDB",
-        "Docker",
-        "Node.js",
-        "TypeScript"
-      ];
-      
-      let skillIndex = 0;
-      const morphEl = document.getElementById("morphingSkill");
-      
-      function cycleSkills() {
-        // Start fading out
-        morphEl.classList.add("fade-out");
-      
-        // Quickly after starting fade (e.g., 100ms), change text
-        setTimeout(() => {
-          skillIndex = (skillIndex + 1) % skills.length;
-          morphEl.textContent = skills[skillIndex];
-          morphEl.classList.remove("fade-out");
-        }, 100); // 100ms — early, not full fade yet
-      
-        // Wait a bit before changing again
-        setTimeout(cycleSkills, 500); // repeat every 0.5s
-      }
-      
-      // Initial skill
-      morphEl.textContent = skills[0];
-      setTimeout(cycleSkills, 500);      
+       
 
 });
   
+// NEW SKILLS RIPPLE EFFECT
+// NEW FINAL SKILLS RIPPLE EFFECT
+document.addEventListener('DOMContentLoaded', () => {
+  const skillSection = document.getElementById('skills');
+  const skillsGrid = Array.from(document.querySelectorAll('.skills-grid .skill'));
+
+  // Define cleaned-up, reordered grids
+  const skillSets = [
+    [
+      "Python", "JavaScript", "TensorFlow", "Docker", "MongoDB",
+      "OpenCV", "React", "FastAPI", "Node.js", "TypeScript",
+      "Unity3D", "SQL", "Supabase", "NetBeans", "Eclipse",
+      "MATLAB", "SwaggerUI", "Git", "VS Code", "Zero Trust Architecture",
+      "Database Security", "Web App Security", "JWT Authentication", "OAuth 2.0", "Real-Time Processing"
+    ],
+    [
+      "Project Management", "Leadership", "Team Collaboration", "Agile", "Scrum",
+      "Visual Studio", "Problem Solving", "Software Testing", "System Design", "Database Design",
+      "Version Control", "GitHub", "Portfolio Building", "Content Writing", "Technical Presentations",
+      "Linux", "Server Hardening", "Monitoring", "Logging", "Anomaly Detection",
+      "Model Evaluation", "Resilience Engineering", "Cloud Security", "Azure", ""
+    ],
+    [
+      "UI/UX", "Adobe Creative Suite", "DaVinci Resolve", "Visual Communication", "Technical Writing",
+      "Public Speaking", "Organizational Skills", "Time Management", "Critical Thinking", "Creative Problem Solving",
+      "Mentoring (Peer Tutor)", "Microsoft Office Suite", "Presentation Design", "Research Skills", "Independent Learning",
+      "Curiosity-Driven Development", "Software Documentation", "Storytelling (Technical Context)", "Self-Management", "Adaptability",
+      "Academic Writing", "Peer Collaboration", "Career Development", "Work Ethic", "Growth Mindset"
+    ]
+  ];
+
+  let currentSet = 0;
+  let animationTriggered = false;
+
+  function rippleUpdate(skills) {
+    const max = 5;
+    let delay = 0;
+
+    for (let d = 0; d <= (2 * (max - 1)); d++) {
+      for (let row = 0; row < max; row++) {
+        for (let col = 0; col < max; col++) {
+          if (row + col === d) {
+            const idx = (row * 5) + col;
+            if (idx < skillsGrid.length) {
+              setTimeout(() => {
+                skillsGrid[idx].classList.remove('show'); // fade out old
+                setTimeout(() => {
+                  const newText = skills[idx] || "";
+                  skillsGrid[idx].textContent = newText;
+                  if (newText.trim() === "") {
+                    skillsGrid[idx].classList.remove('show'); // hide bullet if empty
+                  } else {
+                    skillsGrid[idx].classList.add('show'); // fade in new text with bullet
+                  }
+                }, 150);
+              }, delay * 120);
+            }
+          }
+        }
+      }
+      delay++;
+    }
+  }
+
+  function onScroll() {
+    const rect = skillSection.getBoundingClientRect();
+    if (rect.top <= window.innerHeight * 0.8 && !animationTriggered) {
+      animationTriggered = true;
+      rippleUpdate(skillSets[currentSet]);
+
+      setInterval(() => {
+        currentSet = (currentSet + 1) % skillSets.length;
+        rippleUpdate(skillSets[currentSet]);
+      }, 6000);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+});
+
