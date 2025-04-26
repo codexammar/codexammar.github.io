@@ -735,64 +735,62 @@ html.theme-transition .theme-toggle {
     background: linear-gradient(to right, #b3955e, #1a1a1a);
   }  
 
-  .timeline-wrapper {
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 3rem 0;
     position: relative;
-    margin: 6rem auto 4rem;
-    width: 100%;
-    max-width: 1000px;
-    height: 6px;
-    background: #ccc;
-    border-radius: 3px;
+    gap: 2rem;
+  }
+  
+  .timeline-item {
+    flex: 1;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    min-height: 220px; /* adjust as needed */
+  }
+  
+  .timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .timeline-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .timeline-subtitle {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    color: #aaa;
+    font-style: italic;
   }
   
   .timeline-line {
     position: absolute;
-    top: 50%;
+    top: 35px;
     left: 0;
-    height: 6px;
-    width: 100%;
+    right: 0;
+    height: 3px;
     background: #ccc;
-    transform: translateY(-50%);
-    z-index: 1;
+    z-index: 0;
   }
   
-  .timeline-item {
-    position: absolute;
-    top: -30px;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 0.8s ease;
-    text-align: center;
-  }
-  
-  .timeline-item.active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  
-  .marker {
-    width: 18px;
-    height: 18px;
-    background: #0070f3;
+  .timeline-dot {
+    width: 14px;
+    height: 14px;
+    background: dodgerblue;
     border-radius: 50%;
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-  
-  .timeline-content {
-    margin-top: 2rem;
-  }
-  
-  .timeline-content h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
-  }
-  
-  .timeline-content p {
-    font-size: 0.9rem;
-    margin: 0.1rem 0;
-  }
+    margin: 0 auto 0.75rem;
+    z-index: 1;
+    position: relative;
+  } 
   
