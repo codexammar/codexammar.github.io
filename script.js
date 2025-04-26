@@ -202,5 +202,23 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
         copyPhoneText.textContent = "Copied!";
         setTimeout(() => (copyPhoneText.textContent = "Copy Phone"), 2000);
     });  
+
+    // Timeline scroll animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        }
+    });
+    }, {
+    threshold: 0.2,
+    });
+
+    timelineItems.forEach(item => {
+    observer.observe(item);
+    });
+
 });
   
