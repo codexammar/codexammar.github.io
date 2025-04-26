@@ -240,17 +240,23 @@ document.getElementById("copyEmailBtn")?.addEventListener("click", () => {
       let skillIndex = 0;
       const morphEl = document.getElementById("morphingSkill");
       
-      function showNextSkill() {
+      function cycleSkills() {
         morphEl.classList.add("fade-out");
+      
         setTimeout(() => {
+          // After fading out
           skillIndex = (skillIndex + 1) % skills.length;
           morphEl.textContent = skills[skillIndex];
           morphEl.classList.remove("fade-out");
-        }, 550); // match CSS transition duration
+          
+          // Wait after showing new text, then fade out again
+          setTimeout(cycleSkills, 300); // show new skill for 2 seconds
+        }, 500); // match fade-out transition time
       }
       
-      morphEl.textContent = skills[0]; // initial load
-      setInterval(showNextSkill, 550); // change every 2.5s      
+      // Start immediately
+      morphEl.textContent = skills[0];
+      setTimeout(cycleSkills, 300); // start cycling after showing first skill for 2 seconds      
 
 });
   
