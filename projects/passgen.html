@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PassGen | CodexAmmar</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>  
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>PassGen - Wallet Pass Generator</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Project Overview</h2>
+          <p>
+            PassGen is a web-based application designed to allow users to create custom Apple Wallet passes from scratch.
+            With features like live preview, cropping, color editing, and QR generation, it gives full control over the pass layout.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/passgenUI.png" alt="PassGen Main UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Photo Upload and Cropping</h2>
+          <p>
+            Users can upload a personal photo and adjust it inside the app using a smooth and responsive cropping tool powered by CropperJS.
+            This ensures the profile photo appears clean and professional inside the pass preview.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/photocropper.png" alt="Photo Cropper Preview">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Field Alignment and Visibility</h2>
+          <p>
+            Every text field (Name, Email, Phone) can be center, left, or right aligned, giving flexible layout control.
+            Users can also toggle visibility of each field depending on what they want to show.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/alignment.png" alt="Alignment and Visibility Controls">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Color Customization Features</h2>
+          <p>
+            PassGen provides real-time color editing for background and text colors.
+            All changes immediately update the preview, powered by Pickr — a lightweight, responsive color picker.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/coloreffect1.png" alt="Color Background Editing">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Download Options</h2>
+          <p>
+            Users can download a .pkpass file or export the generated card as a PNG image.
+            The PNG snapshot helps users share or print the pass, while the .pkpass file is intended for Apple Wallet apps.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/coloreffect2.png" alt="Download Pass Options">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Limitations</h2>
+          <p>
+            PassGen currently does not support official Apple Wallet signing, so the generated .pkpass files may not be directly importable into Wallet without third-party apps like Pass2U. 
+            Additionally, QR codes are not rendered into the PNG downloads due to HTML-to-canvas rendering limitations.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/passgen/wallet-pass.png" alt="Known Issues">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="https://codexammar.github.io/passgen" target="_blank">🌟 Visit Live PassGen Website</a>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
