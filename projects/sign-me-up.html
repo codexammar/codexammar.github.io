@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Me Up | CodexAmmar</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js"></script>
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Sign Me Up: Learn ASL with AI</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Project Overview</h2>
+          <p>
+            “Sign Me Up” is an interactive web app that helps users learn American Sign Language (ASL)
+            through real-time gesture recognition. It uses MediaPipe Hands to detect signs via webcam and
+            validate gestures against dynamic motion logic.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/homepage.png" alt="Homepage Screenshot">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Introductory Modules</h2>
+          <p>
+            The app introduces users to greetings, yes/no questions, and everyday phrases with guided lessons.
+            Each module tracks progress, reinforcing learning through repetition and visual feedback.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/introlessons.png" alt="Intro Module Lessons">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Modular Lesson Cards</h2>
+          <p>
+            Users navigate through stylish cards representing individual lessons. Each card brings users
+            to a hands-on training page with context-aware instructions and visual examples.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/modulecards.png" alt="Lesson Cards UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Camera-Based Detection</h2>
+          <p>
+            A live webcam feed is paired with a responsive canvas overlay. As users perform signs,
+            the app evaluates gestures in real time using multi-hand landmark data and motion patterns.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/startingcamera.png" alt="Camera Starting Screen">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Real-Time Feedback</h2>
+          <p>
+            As users attempt signs, the system overlays positive or negative feedback directly onto the
+            video feed. A green ✅ means success, while red ❌ prompts the user to retry.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/detection-positive.png" alt="Positive Detection Feedback">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>When Detection Fails</h2>
+          <p>
+            If a gesture isn't recognized, the canvas displays a ❌ and keeps track of failed attempts
+            without punishing the user. This allows for intuitive correction and immediate retry.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/sign-me-up/detection-negative.png" alt="Negative Detection Feedback">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
