@@ -121,10 +121,11 @@
         <div class="project-text">
           <h2>Project Overview</h2>
           <p>
-            “Sign Me Up” is an interactive web app that helps users learn American Sign Language (ASL)
-            through real-time gesture recognition. It uses MediaPipe Hands to detect signs via webcam and
-            validate gestures against dynamic motion logic.
-          </p>
+            Sign Me Up is a privacy-focused ASL learning platform that uses MediaPipe Hands and vanilla JavaScript 
+            to track your hand gestures directly through your webcam. It provides real-time feedback without 
+            requiring any accounts, logins, or servers. All progress is saved locally on your browser using localStorage, 
+            so nothing ever leaves your device.
+          </p>        
         </div>
         <div class="project-image">
           <img src="../assets/images/projects/sign-me-up/homepage.png" alt="Homepage Screenshot">
@@ -135,8 +136,9 @@
         <div class="project-text">
           <h2>Introductory Modules</h2>
           <p>
-            The app introduces users to greetings, yes/no questions, and everyday phrases with guided lessons.
-            Each module tracks progress, reinforcing learning through repetition and visual feedback.
+            Users begin with basic signs like greetings, yes/no questions, and everyday phrases. Each module tracks your 
+            gesture progress locally and requires successful repetition to move forward. Tutorials for each sign are coming 
+            soon and will include visual walkthroughs to help new learners.
           </p>
         </div>
         <div class="project-image">
@@ -148,8 +150,9 @@
         <div class="project-text">
           <h2>Modular Lesson Cards</h2>
           <p>
-            Users navigate through stylish cards representing individual lessons. Each card brings users
-            to a hands-on training page with context-aware instructions and visual examples.
+            Lessons are organized into clean, mobile-friendly cards that guide you through specific signing categories. Each card 
+            brings you to an interactive camera session with instructions based on the context of that sign. The design emphasizes 
+            clarity, even on smaller devices.
           </p>
         </div>
         <div class="project-image">
@@ -161,8 +164,9 @@
         <div class="project-text">
           <h2>Camera-Based Detection</h2>
           <p>
-            A live webcam feed is paired with a responsive canvas overlay. As users perform signs,
-            the app evaluates gestures in real time using multi-hand landmark data and motion patterns.
+            When you begin a lesson, the app accesses your webcam and uses MediaPipe to track hand movement live. 
+            The setup is intentionally lightweight and fully browser-based — no downloads, no backend, and no uploads — 
+            to make it accessible across devices.
           </p>
         </div>
         <div class="project-image">
@@ -174,8 +178,8 @@
         <div class="project-text">
           <h2>Real-Time Feedback</h2>
           <p>
-            As users attempt signs, the system overlays positive or negative feedback directly onto the
-            video feed. A green ✅ means success, while red ❌ prompts the user to retry.
+            As you perform each sign, the app visually confirms whether the gesture is correct with a ✅ directly on screen. 
+            This feedback loop helps users adjust quickly and build muscle memory with minimal delay or confusion.
           </p>
         </div>
         <div class="project-image">
@@ -187,8 +191,8 @@
         <div class="project-text">
           <h2>When Detection Fails</h2>
           <p>
-            If a gesture isn't recognized, the canvas displays a ❌ and keeps track of failed attempts
-            without punishing the user. This allows for intuitive correction and immediate retry.
+            If the system doesn’t recognize a sign, a ❌ appears on the screen. Users can immediately retry without penalty, and logic 
+            has been added to prevent accidental triggers. This makes the experience more forgiving, especially during early attempts or noisy environments.
           </p>
         </div>
         <div class="project-image">
