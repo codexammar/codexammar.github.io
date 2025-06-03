@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReactPlaybook.dev | CodexAmmar</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>  
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="back-button">
+        <a href="https://codexammar.github.io/reactplaybook.dev/" target="_blank"> Visit my live Portfolio of React Functionality!</a>
+    </div>
+    <section class="content">
+      <h1><span style="color: #61dafb;">ReactPlaybook</span>.dev</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Project Overview</h2>
+          <p>
+            <strong>ReactPlaybook.dev</strong> is a self-documenting portfolio designed to demonstrate
+            working knowledge of core and advanced React concepts. Built using Vite + React,
+            it showcases concepts from the Meta React Developer Certificate curriculum with
+            live demos, dynamic routes, and theme toggling.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/full-ui-reactplaybook.png" alt="ReactPlaybook.dev Full UI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Dark Mode & Theming</h2>
+          <p>
+            We implemented a smooth light/dark theme toggle using React Context, CSS variables, and `localStorage`
+            persistence — with no flash on refresh. A pre-load script ensures consistent theming even before React hydrates.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/dark-mode-toggle.png" alt="Dark Mode Toggle">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Interactive Concept Cards</h2>
+          <p>
+            Each React concept is displayed as a card that highlights on hover and routes to a detailed
+            live demo page using `react-router-dom`. Transitions and hover effects enhance interactivity.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/hover-card-animation.png" alt="Card Hover Interaction">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Live JSX Demonstration</h2>
+          <p>
+            Pages like <strong>JSXBasics</strong> render JSX code live — teaching concepts by
+            showing users how written code translates directly into visual elements in real time.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/jsx-demo-example.png" alt="JSXBasics Example">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Mobile-First Design</h2>
+          <p>
+            The entire site was designed with mobile breakpoints in mind. Padding, spacing,
+            and sticky elements dynamically adjust for smaller screen sizes to ensure readability and usability.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/mobile-layout-preview.png" alt="Mobile Layout Preview">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Build & Deployment</h2>
+          <p>
+            Deployed using <strong>GitHub Pages</strong> with a custom `basename` and a `404.html` fallback to ensure
+            all dynamic routes (like `/concept/jsx-basics`) function properly even on page reloads.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/react-playbook/github-pages-live.png" alt="Deployed GitHub Pages">
+        </div>
+      </div>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
