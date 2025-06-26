@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Banking System | CodexAmmar</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>  
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 2rem;
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      background: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #0057c2;
+    }
+
+    html.dark-mode .back-button a {
+      background: #3399ff;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #2277cc;
+    }
+
+    .content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1><span style="color: #6d93ff;">Secure</span> Banking System</h1>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Project Overview</h2>
+          <p>
+            A client-server banking simulation developed in Java for COE817 (Network Security, W2025).
+            It focuses on protecting financial transactions using encryption, message integrity checks,
+            and secure session handling. Designed to reflect real-world ATM-server communication,
+            the project features secure login, deposits, withdrawals, and balance inquiries through a Java Swing-based interface.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/startup.png" alt="GUI Startup">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Secure Registration</h2>
+          <p>
+            New users are registered through encrypted input and verified MACs, ensuring credentials
+            aren't exposed in transit. Encryption is AES-based with secure session keys derived from a pre-shared key exchange.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/registration.png" alt="Account Registration GUI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Transaction Handling</h2>
+          <p>
+            Users can securely deposit, withdraw, and check account balances. Every message is encrypted and MAC-verified,
+            preventing tampering or replay attacks. Client-side encryption logic was integrated with GUI components to
+            provide seamless secure functionality.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/deposit.png" alt="Deposit Screen">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Balance and Withdrawals</h2>
+          <p>
+            Account balance queries and withdrawals go through encrypted request-response flows.
+            MACs ensure integrity and prevent forged transactions. The server verifies and processes each transaction using thread-safe handlers.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/balance.png" alt="Balance Inquiry GUI">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Logs and Security Audits</h2>
+          <p>
+            Every transaction is recorded in both encrypted and plain-text (demo-only) logs. This ensures traceability while protecting sensitive data.
+            Logging uses AES encryption, and supports internal audits or troubleshooting.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/unencryptedlogforviewing.png" alt="Unencrypted Log for Demo">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Secure Logout</h2>
+          <p>
+            Sessions terminate cleanly on logout, clearing in-memory keys and confirming client disconnection.
+            All commands from login to logout are secured end-to-end through cryptographic validation.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/logout.png" alt="Logout Interface">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Encrypted Logs and Database</h2>
+          <p>
+            After all transactions, encrypted logs are saved for secure auditing. The simulated database also reflects updates securely.
+            These files demonstrate secure backend processing and how sensitive data is handled across sessions.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/encryptedlog.png" alt="Encrypted Log File">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Final Account State</h2>
+          <p>
+            The final database reflects successful deposits, withdrawals, and new registrations.
+            Data integrity is preserved across client sessions and multithreaded server connections.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../images/projects/bank-project/transactionsdatabase.png" alt="Final Database">
+        </div>
+      </div>
+
+      <section class="content credit-section">
+        <h2>Team Members</h2>
+        <div class="project-grid">
+          <a href="https://www.linkedin.com/in/hamidjavaheri" class="project-card" target="_blank">
+            <h3>Hamid Javaheri</h3>
+          </a>
+          <a href="https://www.linkedin.com/in/simg16" class="project-card" target="_blank">
+            <h3>Simrat Gill</h3>
+          </a>
+          <a href="https://www.linkedin.com/in/malshalabi" class="project-card" target="_blank">
+            <h3>Mohammad Al-Shalabi</h3>
+          </a>
+          <a href="https://www.linkedin.com/in/ammarswork" class="project-card" target="_blank">
+            <h3>Syed Ammar Ali (Me)</h3>
+          </a>
+        </div>
+        <p style="text-align: center; margin-top: 1.5rem;">
+          My contributions included developing GUI components, integrating encryption into the ATM client, and collaborating on secure communication between the client and server.
+        </p>
+      </section>      
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
