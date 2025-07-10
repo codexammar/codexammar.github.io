@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeskOp | CodexAmmar</title>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="../style.css" />
+  <script defer src="../script.js?v=1.058"></script>
+  <style>
+    .project-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1100px;
+      align-items: center;
+    }
+
+    .project-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project-text {
+      flex: 1 1 50%;
+    }
+
+    .project-image {
+      flex: 1 1 45%;
+    }
+
+    .project-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .install-button {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .install-button a {
+      background: #2ecc71;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .install-button a:hover {
+      background: #27ae60;
+    }
+
+    html.dark-mode .install-button a {
+      background: #33cc88;
+    }
+
+    html.dark-mode .install-button a:hover {
+      background: #2ca66f;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="left-group">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </button>
+        <div class="logo">CodexAmmar</div>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html#about">About</a></li>
+          <li class="nav-item"><a href="../index.html#projects">Projects</a></li>
+          <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1 style="text-align: center;"><span style="color: #00cc99;">DeskOp</span> Desktop Overlay</h1>
+
+      <div class="install-button">
+        <a href="https://codexammar.github.io/assets/downloads/DeskOpSetup.exe" download>⬇️ Download Installer</a>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>How to Install</h2>
+          <p>
+            1. Click the green download button above<br />
+            2. Run the installer (DeskOpSetup.exe)<br />
+            3. DeskOp will launch immediately and stay in your tray<br />
+            4. You can uninstall via Control Panel at any time<br />
+            5. The app runs on startup automatically
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/deskop/runsonstartup.png" alt="Runs on Startup">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+            <h2>Features & User Guide</h2>
+            <p>
+            DeskOp is a lightweight desktop overlay built with C# WPF that docks to the top or bottom of your screen. It stays
+            <strong>beneath all open windows but above your wallpaper</strong>, meaning it never gets in your way while working or gaming. 
+            Think of it as a smart layer that blends into your desktop — always accessible, never intrusive.
+            </p>
+        </div>
+        <div class="project-image">
+            <img src="../assets/images/projects/deskop/staysonbottom.gif" alt="Always Stays Behind Other Windows">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Custom Filtering</h2>
+          <p>
+            Easily switch categories like Games, Work, or Docs using the filter buttons. DeskOp reads from
+            <code>filters.json</code> and only shows relevant shortcuts based on keywords. You can even edit
+            this file to define your own categories.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/deskop/changefilteroptions.gif" alt="Change Filter Options">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+            <h2>SnapZones</h2>
+            <p>
+            DeskOp can snap cleanly to different parts of your screen using its intuitive <strong>SnapZone</strong> system. 
+            You can place the overlay at the <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, or <strong>right</strong> of your screen — 
+            each zone intelligently resizes and aligns based on your resolution and content.
+            <br /><br />
+            Simply select a SnapZone from the settings menu or toggle filters to re-snap dynamically. 
+            Side snap zones are vertically centered, while top/bottom zones are horizontally balanced — giving you precise control over DeskOp’s layout without manual dragging.
+            </p>
+        </div>
+        <div class="project-image">
+            <img src="../assets/images/projects/deskop/snapzones.gif" alt="DeskOp SnapZone Demonstration">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Theme Customization</h2>
+          <p>
+            Choose a light or dark mode, select your accent color, and DeskOp will remember your style between sessions.
+            Changes are saved in <code>theme-settings.json</code>.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/deskop/changethemeinsettings.gif" alt="Theme Settings GIF">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Persistent State</h2>
+          <p>
+            DeskOp remembers your last used filter, filter buttons location, snap location, and theme. Everything is restored when you reboot or
+            launch the app again — no setup needed each time.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/deskop/savesyourlaststateinjsons.png" alt="Saves State">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>Customize Filters</h2>
+          <p>
+            Want your own categories? Just open <code>filters.json</code> and add new keywords under a label.
+            DeskOp will match shortcuts using those keywords (e.g., "steam", "pdf", "docs") and show only those in each mode.
+          </p>
+        </div>
+        <div class="project-image">
+          <img src="../assets/images/projects/deskop/changeyourcategoryfilterjsonifyouwantcustom.png" alt="Customize Filters">
+        </div>
+      </div>
+
+      <div class="project-section">
+        <div class="project-text">
+          <h2>How Filtering Works</h2>
+          <p>
+            DeskOp loads all files from your Desktop folder. It then checks each shortcut name for category keywords (defined in
+            <code>filters.json</code>) and displays only those matching the selected filter. The layout auto-sizes itself and
+            adjusts to your screen position.
+          </p>
+        </div>
+      </div>
+
+      <section class="content credit-section">
+        <h2>Credits</h2>
+        <p style="text-align: center;">
+          Designed and developed solely by <strong>Syed Ammar Ali</strong> as a large-scale personal project to demonstrate
+          adaptability, problem-solving, and full-stack development skills in C#.
+        </p>
+      </section>
+
+      <div class="back-button">
+        <a href="../index.html">← Back to Homepage</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
