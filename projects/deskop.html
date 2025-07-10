@@ -133,10 +133,10 @@
           <h2>How to Install</h2>
           <p>
             1. Click the green download button above<br />
-            2. Run the installer (DeskOpSetup.exe)<br />
-            3. DeskOp will launch immediately and stay in your tray<br />
-            4. You can uninstall via Control Panel at any time<br />
-            5. The app runs on startup automatically
+            2. Run the installer <code>DeskOpSetup.exe</code><br />
+            3. DeskOp will install to Program Files (x86) and launch automatically<br />
+            4. It will auto-run on startup via the Windows Startup folder<br />
+            5. You can uninstall it anytime via Control Panel → Programs and Features
           </p>
         </div>
         <div class="project-image">
@@ -146,15 +146,15 @@
 
       <div class="project-section">
         <div class="project-text">
-            <h2>Features & User Guide</h2>
-            <p>
-            DeskOp is a lightweight desktop overlay built with C# WPF that docks to the top or bottom of your screen. It stays
-            <strong>beneath all open windows but above your wallpaper</strong>, meaning it never gets in your way while working or gaming. 
-            Think of it as a smart layer that blends into your desktop — always accessible, never intrusive.
-            </p>
+          <h2>Features & User Guide</h2>
+          <p>
+            DeskOp is a lightweight, always-on desktop overlay built using C# and WPF.
+            It docks to your screen’s edge and stays <strong>beneath all open windows but above your wallpaper</strong>,
+            making it non-intrusive while still being always available — perfect for productivity or gaming.
+          </p>
         </div>
         <div class="project-image">
-            <img src="../assets/images/projects/deskop/staysonbottom.gif" alt="Always Stays Behind Other Windows">
+          <img src="../assets/images/projects/deskop/staysonbottom.gif" alt="Always Stays Behind Other Windows">
         </div>
       </div>
 
@@ -162,9 +162,9 @@
         <div class="project-text">
           <h2>Custom Filtering</h2>
           <p>
-            Easily switch categories like Games, Work, or Docs using the filter buttons. DeskOp reads from
-            <code>filters.json</code> and only shows relevant shortcuts based on keywords. You can even edit
-            this file to define your own categories.
+            Easily toggle categories like Games, Productivity, or Docs using the filter buttons.
+            DeskOp reads from a <code>filters.json</code> file to determine which shortcuts to show.
+            You can customize this file with your own categories and keyword triggers.
           </p>
         </div>
         <div class="project-image">
@@ -174,18 +174,18 @@
 
       <div class="project-section">
         <div class="project-text">
-            <h2>SnapZones</h2>
-            <p>
-            DeskOp can snap cleanly to different parts of your screen using its intuitive <strong>SnapZone</strong> system. 
-            You can place the overlay at the <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, or <strong>right</strong> of your screen — 
-            each zone intelligently resizes and aligns based on your resolution and content.
-            <br /><br />
-            Simply select a SnapZone from the settings menu or toggle filters to re-snap dynamically. 
-            Side snap zones are vertically centered, while top/bottom zones are horizontally balanced — giving you precise control over DeskOp’s layout without manual dragging.
-            </p>
+          <h2>SnapZones</h2>
+          <p>
+            DeskOp supports dynamic positioning using <strong>SnapZones</strong>. You can snap it to the <strong>top</strong>,
+            <strong>bottom</strong>, <strong>left</strong>, <strong>right</strong>, or <strong>center</strong> of your screen.
+            Layouts adapt automatically: top/bottom zones use horizontal rows; left/right zones use vertical columns.
+          </p>
+          <p>
+            Snapping happens automatically when dragging, or when changing filter modes or reopening the app.
+          </p>
         </div>
         <div class="project-image">
-            <img src="../assets/images/projects/deskop/snapzones.gif" alt="DeskOp SnapZone Demonstration">
+          <img src="../assets/images/projects/deskop/snapzones.gif" alt="DeskOp SnapZone Demonstration">
         </div>
       </div>
 
@@ -193,8 +193,9 @@
         <div class="project-text">
           <h2>Theme Customization</h2>
           <p>
-            Choose a light or dark mode, select your accent color, and DeskOp will remember your style between sessions.
-            Changes are saved in <code>theme-settings.json</code>.
+            Toggle between light and dark mode, choose your background and accent colors,
+            and DeskOp will remember your preferences. All customizations are saved to <code>theme-settings.json</code>
+            and automatically applied on startup.
           </p>
         </div>
         <div class="project-image">
@@ -206,8 +207,14 @@
         <div class="project-text">
           <h2>Persistent State</h2>
           <p>
-            DeskOp remembers your last used filter, filter buttons location, snap location, and theme. Everything is restored when you reboot or
-            launch the app again — no setup needed each time.
+            DeskOp remembers your:
+            <ul>
+              <li>Last used filter</li>
+              <li>Theme colors and mode</li>
+              <li>Window snap zone and layout</li>
+              <li>Main window position</li>
+            </ul>
+            These are restored on launch automatically — no need to reconfigure each time.
           </p>
         </div>
         <div class="project-image">
@@ -219,8 +226,9 @@
         <div class="project-text">
           <h2>Customize Filters</h2>
           <p>
-            Want your own categories? Just open <code>filters.json</code> and add new keywords under a label.
-            DeskOp will match shortcuts using those keywords (e.g., "steam", "pdf", "docs") and show only those in each mode.
+            You can define your own filter categories by editing the <code>filters.json</code> file.
+            Each category contains a list of keywords (like <code>"steam"</code> or <code>"pdf"</code>).
+            DeskOp matches these against shortcut names and metadata to determine which icons belong to which filter.
           </p>
         </div>
         <div class="project-image">
@@ -232,9 +240,10 @@
         <div class="project-text">
           <h2>How Filtering Works</h2>
           <p>
-            DeskOp loads all files from your Desktop folder. It then checks each shortcut name for category keywords (defined in
-            <code>filters.json</code>) and displays only those matching the selected filter. The layout auto-sizes itself and
-            adjusts to your screen position.
+            DeskOp scans all shortcuts from your user and public Desktop folders.
+            For each shortcut, it checks names, paths, and arguments for keywords defined in
+            <code>filters.json</code>. It then dynamically displays a filtered grid of icons
+            based on your selected category.
           </p>
         </div>
       </div>
