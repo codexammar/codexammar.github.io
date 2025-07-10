@@ -41,6 +41,33 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
+    .back-button {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .back-button a {
+      background: #555;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background: #333;
+    }
+
+    html.dark-mode .back-button a {
+      background: #777;
+    }
+
+    html.dark-mode .back-button a:hover {
+      background: #999;
+    }
+
     .install-button {
       text-align: center;
       margin: 2rem 0;
@@ -62,10 +89,12 @@
 
     html.dark-mode .install-button a {
       background: #33cc88;
+      color: white;
     }
 
     html.dark-mode .install-button a:hover {
       background: #2ca66f;
+      color: white;
     }
   </style>
 </head>
